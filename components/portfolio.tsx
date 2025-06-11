@@ -112,12 +112,7 @@ export function Portfolio() {
             Live Demo
           </Link>
         </Button>
-        <Button size="sm" variant="secondary" asChild className="bg-primary/90">
-          <Link href={project.caseStudyUrl}>
-            <Github className="h-4 w-4 mr-2" />
-            Case Study
-          </Link>
-        </Button>
+        
       </div>
     </div>
 
