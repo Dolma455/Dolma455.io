@@ -4,9 +4,11 @@ import "./globals.css"
 import { ThemeProvider } from "next-themes"
 
 export const metadata: Metadata = {
-  title: "v0 App",
-  description: "Created with v0",
-  generator: "v0.dev",
+  title: "DolmaLama",
+  description: "Portfolio of DolmaLama",
+  icons: {
+    icon: "/icon.svg",
+  },
 }
 
 export default function RootLayout({
