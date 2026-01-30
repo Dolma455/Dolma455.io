@@ -2,7 +2,7 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Smartphone, Monitor, Search, Palette, Users, Layers } from "lucide-react"
-import { motion } from "framer-motion"
+import { motion, Variants } from "framer-motion"
 
 export function Services() {
   const services = [
@@ -52,7 +52,7 @@ export function Services() {
     },
   ]
 
-  const container = {
+  const container: Variants = {
     hidden: { opacity: 0 },
     show: {
       opacity: 1,
@@ -62,7 +62,7 @@ export function Services() {
     },
   }
 
-  const cardAnim = {
+  const cardAnim: Variants = {
     hidden: { opacity: 0, y: 40 },
     show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } },
   }

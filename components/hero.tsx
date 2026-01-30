@@ -34,9 +34,11 @@ export function Hero() {
               <Button asChild size="lg" className="bg-primary">
                 <Link href="#portfolio">View My Work</Link>
               </Button>
-              <Button variant="outline" size="lg" className="gap-2 border-primary/20 hover:opacity-80 transition-opacity hover:text-foreground">
-                <Download className="h-4 w-4" />
-                Download Resume
+              <Button asChild variant="outline" size="lg" className="gap-2 border-primary/20 hover:opacity-80 transition-opacity hover:text-foreground">
+                <a href="/resume.pdf" download="Resume.pdf" target="_blank" rel="noopener noreferrer">
+                  <Download className="h-4 w-4" />
+                  Download Resume
+                </a>
               </Button>
             </div>
 
