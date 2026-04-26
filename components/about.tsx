@@ -1,116 +1,148 @@
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Palette, Users, Lightbulb, Target } from "lucide-react"
+"use client"
+
+import { motion } from "framer-motion"
+import { Palette, Code, Rocket } from "lucide-react"
+import { GradientText } from "./effects/text-effects"
+import { Badge } from "./ui/badge"
 
 export function About() {
-  const skills = [
-    "User Research",
-    "Wireframing",
-    "Prototyping",
-    "Visual Design",
-    "Interaction Design",
-    "Usability Testing",
-    "Design Systems",
-    "User Experience (UX) Design",
-    "Figma",
-    "FigJam",
-    "Flutter",
-    "HTML/CSS/Javascript",
-    "DotNet",
-    "Python",
-  ]
-
-  const values = [
-    {
-      icon: Users,
-      title: "User-Centered",
-      description:
-        "Every design decision is made with the user in mind, ensuring intuitive and accessible experiences.",
-    },
-    {
-      icon: Lightbulb,
-      title: "Innovation",
-      description: "I love exploring new design trends and technologies to create cutting-edge solutions.",
-    },
-    {
-      icon: Target,
-      title: "Goal-Oriented",
-      description: "Focused on achieving business objectives while maintaining excellent user experience.",
-    },
+  const expertise = [
     {
       icon: Palette,
-      title: "Aesthetic Excellence",
-      description: "Combining beautiful visuals with functional design to create memorable experiences.",
+      title: "Design",
+      description: "UX Strategy & Visual Design",
+      gradient: "from-purple-500 to-pink-500"
     },
+    {
+      icon: Code,
+      title: "Development",
+      description: "React, Flutter, Backend APIs",
+      gradient: "from-blue-500 to-cyan-500"
+    },
+    {
+      icon: Rocket,
+      title: "Delivery",
+      description: "Firebase, Production Ready",
+      gradient: "from-orange-500 to-red-500"
+    }
   ]
 
+  const skills = ["UX/UI", "Flutter", "React", "TypeScript", "Firebase", "Node.js"]
+
   return (
-    <section id="about" className="py-20 relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent"></div>
+    <section id="about" className="relative py-32 md:py-40 overflow-hidden">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            About <span className="text-gradient">Me</span>
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            I'm a passionate UI/UX designer with over 2 years of experience creating digital experiences that bridge the
-            gap between user needs and business goals.
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center mb-24"
+        >
+          <Badge className="rounded-full border-primary/30 bg-primary/10 px-4 py-1.5 text-xs uppercase tracking-[0.18em] text-primary mb-4 inline-block">
+            👋 Designer+Developer
+          </Badge>
+          <h2 className="text-5xl leading-[1] md:text-6xl font-bold mb-6">
+                      <span className="block"><GradientText>About Me</GradientText></span>
+                    </h2>
+          <p className="text-lg text-muted-foreground">
+            Specializing in end-to-end product design and development
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
-          <div className="space-y-6">
-            <h3 className="text-2xl font-semibold">My Journey</h3>
-            <p className="text-muted-foreground">
-            I kicked off as a UI/UX Designer, falling in love with creating smooth, beautiful digital experiences during my first project. Now, I focus on designs that look great and solve real user problems.
-            </p>
-            <p className="text-muted-foreground">
-              I believe great design is invisible – it just works. My approach combines user research, data-driven
-              insights, and creative problem-solving to deliver exceptional digital experiences.
-            </p>
+        {/* Three Pillars - Centered */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.6, staggerChildren: 0.15 }}
+          viewport={{ once: true }}
+          className="grid md:grid-cols-3 gap-12 mb-24"
+        >
+          {expertise.map((item) => {
+            const Icon = item.icon
+            return (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+                className="text-center space-y-4"
+              >
+                <div className="flex justify-center">
+                  <div className={`p-3 rounded-full bg-gradient-to-br ${item.gradient} text-white`}>
+                    <Icon className="w-7 h-7" />
+                  </div>
+                </div>
+                <div>
+                  <h3 className="font-semibold text-lg text-foreground">{item.title}</h3>
+                  <p className="text-sm text-muted-foreground mt-1">{item.description}</p>
+                </div>
+              </motion.div>
+            )
+          })}
+        </motion.div>
+
+        {/* Stats & Skills */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="space-y-12"
+        >
+          {/* Stats */}
+          <div className="flex justify-center gap-12">
+            {[
+              { label: "Years", value: "3+" },
+              { label: "Products", value: "12+" },
+              { label: "Expertise", value: "Full-Stack" }
+            ].map((stat, idx) => (
+              <motion.div
+                key={stat.label}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                viewport={{ once: true }}
+                className="text-center"
+              >
+                <div className="text-2xl font-bold text-primary">{stat.value}</div>
+                <div className="text-xs uppercase tracking-wide text-muted-foreground mt-1">{stat.label}</div>
+              </motion.div>
+            ))}
           </div>
 
-          <div className="space-y-4">
-            <h3 className="text-2xl font-semibold mb-4">Skills & Tools</h3>
-            <div className="flex flex-wrap gap-2">
-              {skills.map((skill, index) => (
-                <Badge
+          {/* Skills */}
+          <div className="border-t border-border/30 pt-12">
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="text-center mb-6"
+            >
+              <p className="text-xs uppercase tracking-widest text-muted-foreground">Core Skills</p>
+            </motion.div>
+            <div className="flex flex-wrap justify-center gap-3">
+              {skills.map((skill, idx) => (
+                <motion.span
                   key={skill}
-                    variant="secondary"
-                    className="text-sm transition-all hover:scale-105 bg-muted text-foreground hover:bg-muted/70 border border-border"
-                    >
-                    {skill}
-                  </Badge>
-
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.4, delay: idx * 0.05 }}
+                  viewport={{ once: true }}
+                  className="px-4 py-2 rounded-full bg-primary/10 text-sm font-medium text-primary border border-primary/20"
+                >
+                  {skill}
+                </motion.span>
               ))}
             </div>
           </div>
-        </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {values.map((value, index) => (
-            <Card
-              key={value.title}
-              className="text-center group hover:shadow-lg transition-all duration-300 border-primary/40 hover:border-primary/70"
-            >
-              <CardContent className="pt-6">
-                <div
-                  className={`inline-flex p-3 rounded-full mb-4 ${
-                    index % 2 === 0
-                      ? "bg-gradient-to-r from-secondary to-primary"
-                      : "bg-gradient-to-r from-secondary to-primary"
-                  }`}
-                >
-                  <value.icon className="h-6 w-6 text-primary-foreground group-hover:scale-110 transition-transform" />
-                </div>
-                <h3 className="text-lg font-semibold mb-2">{value.title}</h3>
-                <p className="text-sm text-muted-foreground">{value.description}</p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   )
 }
+

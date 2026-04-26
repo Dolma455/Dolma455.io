@@ -1,123 +1,222 @@
 "use client"
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Smartphone, Monitor, Search, Palette, Users, Layers } from "lucide-react"
-import { motion, Variants } from "framer-motion"
+import { motion } from "framer-motion"
+import { Search, Palette, Code2 } from "lucide-react"
+import { Badge } from "@/components/ui/badge"
+import { GradientText } from "@/components/effects/text-effects"
+import { CardSpotlight } from "@/components/ui/card-spotlight"
 
 export function Services() {
-  const services = [
+  const allServices = [
     {
-      icon: Search,
-      title: "User Research",
-      description:
-        "In-depth user interviews, surveys, and usability testing to understand your audience and their needs.",
-      features: ["User Interviews", "Usability Testing", "Persona Development", "Journey Mapping"],
-      gradient: "from-primary/10 to-secondary/10",
-    },
-    {
-      icon: Palette,
       title: "UI Design",
-      description: "Beautiful, modern interfaces that align with your brand and provide exceptional user experiences.",
-      features: ["Visual Design", "Design Systems", "Branding", "Iconography"],
-      gradient: "from-secondary/10 to-primary/10",
+      description: "Clean, modern interfaces with strong hierarchy, visual balance, and scalable components.",
+      icon: Palette,
+      category: "Design",
+      accent: "primary",
+      highlights: ["Design systems", "High-fidelity screens", "Responsive layouts"],
     },
     {
-      icon: Smartphone,
-      title: "Mobile Design",
-      description: "Native iOS and Android app designs optimized for touch interactions and mobile behaviors.",
-      features: ["iOS Design", "Android Design", "Responsive Design", "Touch Optimization"],
-      gradient: "from-primary/10 to-secondary/10",
+      title: "UX Research",
+      description: "User-focused discovery to reveal real problems, validate ideas, and improve product decisions.",
+      icon: Search,
+      category: "Design",
+      accent: "accent",
+      highlights: ["Interviews & insights", "Journey mapping", "Usability testing"],
     },
     {
-      icon: Monitor,
-      title: "Web Design",
-      description: "Responsive web applications and websites that work seamlessly across all devices and browsers.",
-      features: ["Responsive Design", "Web Applications", "Landing Pages", "E-commerce"],
-      gradient: "from-secondary/10 to-primary/10",
-    },
-    {
-      icon: Users,
-      title: "UX Strategy",
-      description: "Strategic planning and consultation to align user experience with business objectives.",
-      features: ["UX Audits", "Strategy Planning", "Competitive Analysis", "Workshops"],
-      gradient: "from-primary/10 to-secondary/10",
-    },
-    {
-      icon: Layers,
-      title: "Design Systems",
-      description:
-        "Scalable and consistent UI development using reusable components, design tokens, and systematic guidelines.",
-      features: ["Component Reusability", "Design Tokens", "Theming & Customization", "UI Consistency Enforcement"],
-      gradient: "from-secondary/10 to-primary/10",
+      title: "App Development",
+      description: "Production-ready Flutter apps that are fast, stable, and aligned with product goals.",
+      icon: Code2,
+      category: "Development",
+      accent: "primary",
+      highlights: ["Flutter architecture", "API integration", "Performance tuning"],
     },
   ]
 
-  const container: Variants = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-      },
-    },
-  }
+  const renderIllustration = (title: string, isPrimary: boolean) => {
+    if (title === "UI Design") {
+      return (
+        <div className="relative h-40 overflow-hidden rounded-2xl border border-border/50 bg-background/70 p-3">
+          <div className="mb-2 flex items-center gap-1.5 border-b border-border/50 pb-2">
+            <span className="h-2.5 w-2.5 rounded-full bg-rose-400" />
+            <span className="h-2.5 w-2.5 rounded-full bg-amber-400" />
+            <span className="h-2.5 w-2.5 rounded-full bg-emerald-400" />
+          </div>
+          <div className="grid h-[calc(100%-2rem)] grid-cols-12 gap-2">
+            <motion.div
+              animate={{ y: [0, -3, 0] }}
+              transition={{ duration: 2.4, repeat: Infinity }}
+              className="col-span-3 rounded-lg border border-border/50 bg-muted/70"
+            />
+            <div className="col-span-9 space-y-2">
+              <motion.div
+                animate={{ width: ["65%", "80%", "65%"] }}
+                transition={{ duration: 3.2, repeat: Infinity }}
+                className={`h-3 rounded-full ${isPrimary ? "bg-primary/50" : "bg-accent/50"}`}
+              />
+              <div className="h-2.5 w-full rounded-full bg-muted" />
+              <div className="h-2.5 w-4/5 rounded-full bg-muted" />
+              <motion.div
+                animate={{ opacity: [0.6, 1, 0.6] }}
+                transition={{ duration: 2.1, repeat: Infinity }}
+                className={`mt-2 h-12 rounded-lg ${isPrimary ? "bg-primary/20" : "bg-accent/20"}`}
+              />
+            </div>
+          </div>
+        </div>
+      )
+    }
 
-  const cardAnim: Variants = {
-    hidden: { opacity: 0, y: 40 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } },
+    if (title === "UX Research") {
+      return (
+        <div className="relative h-40 overflow-hidden rounded-2xl border border-border/50 bg-background/70 p-3">
+          <motion.div
+            animate={{ rotate: [0, 2, 0] }}
+            transition={{ duration: 3, repeat: Infinity }}
+            className="grid h-full grid-cols-2 gap-2"
+          >
+            <div className="space-y-2 rounded-lg border border-border/50 bg-muted/60 p-2">
+              <div className="h-2.5 w-2/3 rounded-full bg-muted-foreground/30" />
+              <div className={`h-7 rounded-md ${isPrimary ? "bg-primary/25" : "bg-accent/25"}`} />
+              <div className="h-2.5 w-4/5 rounded-full bg-muted-foreground/30" />
+              <div className="h-6 rounded-md bg-muted" />
+            </div>
+            <div className="relative rounded-lg border border-border/50 bg-muted/60 p-2">
+              <motion.div
+                animate={{ y: [0, -4, 0] }}
+                transition={{ duration: 2.3, repeat: Infinity }}
+                className={`absolute right-2 top-2 h-6 w-8 rounded ${isPrimary ? "bg-primary/30" : "bg-accent/30"}`}
+              />
+              <div className="h-2.5 w-3/5 rounded-full bg-muted-foreground/30" />
+              <div className="mt-2 h-16 rounded-md border border-dashed border-border/70" />
+              <motion.div
+                animate={{ x: [0, 6, 0] }}
+                transition={{ duration: 2.6, repeat: Infinity }}
+                className={`mt-2 h-2 w-2 rounded-full ${isPrimary ? "bg-primary" : "bg-accent"}`}
+              />
+            </div>
+          </motion.div>
+        </div>
+      )
+    }
+
+    return (
+      <div className="relative h-40 overflow-hidden rounded-2xl border border-border/50 bg-background/70 p-3">
+        <div className="relative mx-auto h-full w-24 rounded-[1.25rem] border-4 border-foreground/80 bg-background p-1">
+          <div className="mx-auto mb-1 h-1.5 w-10 rounded-full bg-foreground/70" />
+          <motion.div
+            animate={{ y: [0, -6, 0] }}
+            transition={{ duration: 2.2, repeat: Infinity }}
+            className={`h-[calc(100%-0.5rem)] rounded-[0.9rem] ${isPrimary ? "bg-primary/20" : "bg-accent/20"}`}
+          >
+            <div className="space-y-1.5 p-2">
+              <div className="h-2 w-3/4 rounded-full bg-foreground/20" />
+              <div className="h-7 rounded-md bg-foreground/10" />
+              <div className="h-2 w-2/3 rounded-full bg-foreground/20" />
+              <div className="h-5 rounded-md bg-foreground/10" />
+            </div>
+          </motion.div>
+        </div>
+        <motion.div
+          animate={{ x: [0, 8, 0] }}
+          transition={{ duration: 2.4, repeat: Infinity }}
+          className={`absolute right-3 top-4 rounded-md px-2 py-1 text-[10px] ${isPrimary ? "bg-primary/20 text-primary" : "bg-accent/20 text-accent"}`}
+        >
+          API
+        </motion.div>
+        <motion.div
+          animate={{ x: [0, -8, 0] }}
+          transition={{ duration: 2.8, repeat: Infinity }}
+          className="absolute bottom-4 left-3 rounded-md bg-muted px-2 py-1 text-[10px] text-muted-foreground"
+        >
+          Sync
+        </motion.div>
+      </div>
+    )
   }
 
   return (
-    <section id="services" className="py-20 relative">
-      <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-secondary/5"></div>
-
+    <section id="services" className="relative overflow-hidden py-28 bg-gradient-to-b from-transparent via-primary/5 to-transparent">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            My <span className="text-gradient">Services</span>
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            I offer comprehensive design services to help bring your digital products to life, from initial research to
-            final implementation.
-          </p>
-        </div>
-
+        {/* Section Header */}
         <motion.div
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
-          variants={container}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.2 }}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="mb-20 text-center max-w-4xl mx-auto"
         >
-          {services.map((service) => (
-            <motion.div variants={cardAnim} key={service.title}>
-              <Card
-                className="group hover:shadow-xl transition-all duration-300 border-primary/40 hover:border-primary/70 overflow-hidden"
-              >
-                <div
-                  className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-40 transition-opacity duration-200`}
-                ></div>
-                <CardHeader className="relative">
-                  <div className="inline-flex p-3 rounded-full bg-gradient-to-br from-primary to-secondary w-fit mb-4">
-                    <service.icon className="h-6 w-6 text-primary-foreground group-hover:scale-110 transition-transform duration-300" />
-                  </div>
-                  <CardTitle className="text-xl">{service.title}</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4 relative">
-                  <p className="text-muted-foreground">{service.description}</p>
-                  <ul className="space-y-2">
-                    {service.features.map((feature) => (
-                      <li key={feature} className="text-sm text-muted-foreground flex items-center">
-                        <div className="w-1.5 h-1.5 bg-gradient-to-r from-primary to-secondary rounded-full mr-2"></div>
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
+          <Badge className="rounded-full border-primary/30 bg-primary/10 px-4 py-1.5 text-xs uppercase tracking-[0.18em] text-primary mb-4 inline-block">
+            💼 What I Do
+          </Badge>
+
+          <h2 className="text-5xl leading-[1] md:text-6xl font-bold mb-6">
+            <span className="block"><GradientText>Core Services</GradientText></span>
+          </h2>
+          <p className="text-lg text-muted-foreground">
+            Three focused capabilities that cover product experience from idea to launch.
+          </p>
         </motion.div>
+
+        <div className="mb-16 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          {allServices.map((service, idx) => {
+            const Icon = service.icon
+            const isPrimary = service.accent === "primary"
+
+            return (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 26 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.08, duration: 0.45 }}
+                className="h-full"
+              >
+                <CardSpotlight className="h-full p-6">
+                  <div>
+                    <div className="mb-6">
+                      {renderIllustration(service.title, isPrimary)}
+                    </div>
+
+                    <div className="mb-3 flex items-center justify-between gap-2">
+                      <div className="flex items-center gap-2.5">
+                        <span className={`inline-flex rounded-lg border p-2 relative z-20 ${isPrimary ? "border-primary/30 bg-primary/15" : "border-accent/30 bg-accent/15"}`}>
+                          <Icon className={`h-4 w-4 ${isPrimary ? "text-primary" : "text-accent"}`} />
+                        </span>
+                        <h3 className="text-2xl font-bold leading-tight relative z-20">{service.title}</h3>
+                      </div>
+                      <Badge
+                        className={`rounded-full text-xs relative z-20 ${
+                          isPrimary
+                            ? "border-primary/30 bg-primary/15 text-primary"
+                            : "border-accent/30 bg-accent/15 text-accent"
+                        }`}
+                      >
+                        {service.category}
+                      </Badge>
+                    </div>
+
+                    <p className="text-sm leading-relaxed text-muted-foreground relative z-20">
+                      {service.description}
+                    </p>
+
+                    <div className="mt-5 flex flex-wrap gap-2 relative z-20">
+                      {service.highlights.map((item) => (
+                        <span
+                          key={item}
+                          className="rounded-full border border-border/60 bg-background/70 px-3 py-1 text-xs text-foreground"
+                        >
+                          {item}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </CardSpotlight>
+              </motion.div>
+            )
+          })}
+        </div>
       </div>
     </section>
   )
