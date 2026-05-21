@@ -42,9 +42,8 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
   }
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-background text-foreground">
+    <div className="relative min-h-screen overflow-hidden text-foreground">
       <GridBackground className="opacity-45" />
-      <div className="absolute inset-0 bg-gradient-to-b from-primary/10 via-accent/5 to-primary/15" />
 
       <main className="relative container mx-auto px-4 pb-20 pt-24 sm:px-6 lg:px-8 lg:pt-32">
         <div className="mb-8">
@@ -73,7 +72,6 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
             </div>
 
             <div className="relative overflow-hidden rounded-3xl border border-border/70 bg-card/70 p-2 backdrop-blur-xl">
-              <div className="absolute -right-24 -top-24 h-56 w-56 rounded-full bg-primary/20 blur-3xl" />
               <Image
                 src={project.image}
                 alt={project.title}

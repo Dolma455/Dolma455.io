@@ -35,7 +35,7 @@ export function Values() {
   ]
 
   return (
-    <section className="relative overflow-hidden py-32 bg-gradient-to-b from-transparent via-primary/3 to-transparent">
+    <section className="relative overflow-hidden py-32">
       <GridBackground className="opacity-30" />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* Section Header */}

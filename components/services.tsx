@@ -137,7 +137,7 @@ export function Services() {
   }
 
   return (
-    <section id="services" className="relative overflow-hidden py-28 bg-gradient-to-b from-transparent via-primary/5 to-transparent">
+    <section id="services" className="relative overflow-hidden py-28">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* Section Header */}
         <motion.div
