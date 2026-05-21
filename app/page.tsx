@@ -1,4 +1,5 @@
 import { Hero } from "@/components/hero"
+import { FloatingConsultButton } from "@/components/ui/floating-consult-button"
 import { About } from "@/components/about"
 import { Services } from "@/components/services"
 import { Portfolio } from "@/components/portfolio"
@@ -20,6 +21,13 @@ export default function Home() {
         <Contact />
       </main>
       <CinematicFooter />
+      <FloatingConsultButton
+        imageSrc="/image/1.jpg"
+        imageAlt="Dolma Lama — get in touch"
+        revolvingText="GET IN TOUCH · LET'S TALK · FREE CONSULT · "
+        revolvingSpeed={12}
+        position={{ bottom: "2rem", left: "2rem" }}
+      />
     </div>
   )
 }
