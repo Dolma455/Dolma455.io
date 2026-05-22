@@ -1,45 +1,7 @@
-"use client";
-
-import { ArrowDown, ArrowUp } from "lucide-react";
-import { useState } from "react";
-import { Badge } from "@/components/ui/badge";
 import { GradientText } from "@/components/effects/text-effects";
+import InfinityBandScroll from "@/components/ui/infinity-band-scroll";
 
 export default function Testimonial1() {
-  const [hoveredImage, setHoveredImage] = useState<string | null>(null);
-  interface StatItem {
-    percentage: string;
-    logo: string;
-    label: string;
-    isIncrease: boolean;
-  }
-
-  const stats: StatItem[] = [
-    {
-      percentage: "99%",
-      label: "LCP & Page Speed Score",
-      isIncrease: true,
-      logo: "customer/vercel.png",
-    },
-    {
-      percentage: "40+",
-      label: "UI components designed",
-      isIncrease: true,
-      logo: "customer/netflix.png",
-    },
-    {
-      percentage: "25%",
-      label: "conversion rate boost",
-      isIncrease: true,
-      logo: "customer/amazon.png",
-    },
-    {
-      percentage: "100%",
-      label: "responsive accuracy",
-      isIncrease: true,
-      logo: "customer/alibaba.png",
-    },
-  ];
 
   return (
     <div className="w-full grid place-content-center py-20 px-4 md:px-8 lg:px-16 relative">
@@ -116,43 +78,7 @@ export default function Testimonial1() {
           </h2>
         </div>
 
-        {/* Stats Container with glassmorphism */}
-        <div className="grid grid-cols-2 md:flex gap-8 bg-card/30 backdrop-blur-md mt-16 w-full mx-auto px-6 py-8 border border-border/40 rounded-2xl shadow-xl">
-          {stats.map((stat, index) => (
-            <div
-              key={stat?.label}
-              className="flex-1 flex gap-4 pl-4 md:pl-10 relative items-center justify-center md:justify-start"
-            >
-              {index !== 0 && (
-                <div className="hidden md:block w-px h-10 border-l border-dashed border-border/40 absolute left-0 top-1/2 -translate-y-1/2" />
-              )}
-              <div className="w-full h-12 relative group flex items-center justify-center">
-                {/* Logo Image */}
-                <img
-                  src={`https://pro-section.ui-layouts.com/${stat?.logo}`}
-                  alt={stat?.label}
-                  className="w-4/5 h-10 object-contain grayscale invert-0 dark:invert opacity-75 group-hover:opacity-0 group-hover:-translate-y-6 transition-all duration-300 ease-out"
-                />
-                {/* Hover Stat Reveal */}
-                <div className="absolute inset-0 opacity-0 flex flex-col items-center justify-center w-full translate-y-6 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 ease-out pointer-events-none">
-                  <div className="flex items-center justify-center gap-1.5">
-                    {stat.isIncrease ? (
-                      <ArrowUp className="w-4 h-4 text-green-500" />
-                    ) : (
-                      <ArrowDown className="w-4 h-4 text-primary" />
-                    )}
-                    <span className="text-xl md:text-2xl font-bold text-foreground">
-                      {stat.percentage}
-                    </span>
-                  </div>
-                  <p className="text-muted-foreground text-[10px] md:text-xs text-center capitalize tracking-tight mt-0.5 line-clamp-1">
-                    {stat.label}
-                  </p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+        <InfinityBandScroll />
       </div>
     </div>
   );

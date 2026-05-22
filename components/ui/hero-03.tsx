@@ -90,12 +90,12 @@ export function HeroSection03() {
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
-                  className="w-14 h-14 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-32 lg:h-32 xl:w-48 xl:h-48 drop-shadow-[0_0_20px_rgba(253,112,160,0.45)]"
+                  className="w-14 h-14 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-32 lg:h-32 xl:w-48 xl:h-48 drop-shadow-[0_0_20px_rgba(168, 85, 247, 0.45)]"
                 >
                   <defs>
                     <linearGradient id="heart-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#fd70a0" />
-                      <stop offset="100%" stopColor="#d6497a" />
+                      <stop offset="0%" stopColor="#a855f7" />
+                      <stop offset="100%" stopColor="#7c3aed" />
                     </linearGradient>
                   </defs>
                   <path

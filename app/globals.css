@@ -46,45 +46,58 @@
   --radius-xl: calc(var(--radius) + 4px);
 }
 
+@theme {
+  --animate-infinite-scroll: infinite-scroll 25s linear infinite;
+
+  @keyframes infinite-scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+}
+
 :root {
   --radius: 0.625rem;
   /* Light Mode */
-  --background: #ffffff;
+  --background: #faf5ee;
   --foreground: #1d181c;
 
-  --card: #ffffff;
+  --card: #faf5ee;
   --card-foreground: #211b1f;
 
   --popover: #fffbfa;
   --popover-foreground: #1d181c;
 
-  /* Primary Pink */
-  --primary: #fd70a0;
+  /* Primary Purple */
+  --primary: #a855f7;
   --primary-foreground: #ffffff;
 
-  /* Secondary Deep Pink */
-  --secondary: #d6497a;
+  /* Secondary Deep Purple */
+  --secondary: #7c3aed;
   --secondary-foreground: #ffffff;
 
-  /* Accent Rose */
-  --accent: #fd70a0;
+  /* Accent Purple */
+  --accent: #a855f7;
   --accent-foreground: #ffffff;
 
   /* Muted */
-  --muted: #ffe8ef;
-  --muted-foreground: #8a5064;
+  --muted: #f3e8ff;
+  --muted-foreground: #6b21a8;
 
   --destructive: #ff4757;
 
-  --border: #f7cbd7;
-  --input: #fae1e7;
-  --ring: #fd70a0;
+  --border: #e9d5ff;
+  --input: #f3e8ff;
+  --ring: #a855f7;
 
-  --chart-1: #fd70a0;
-  --chart-2: #d6497a;
-  --chart-3: #b0355f;
-  --chart-4: #f7cbd7;
-  --chart-5: #ffffff;
+  --chart-1: #a855f7;
+  --chart-2: #7c3aed;
+  --chart-3: #6b21a8;
+  --chart-4: #e9d5ff;
+  --chart-5: #faf5ee;
 }
 
 .dark {
@@ -97,29 +110,29 @@
   --popover: #1a1618;
   --popover-foreground: #fdfbfb;
 
-  --primary: #fd70a0;
+  --primary: #a855f7;
   --primary-foreground: #0a0a0a;
 
-  --secondary: #d6497a;
+  --secondary: #7c3aed;
   --secondary-foreground: #0a0a0a;
 
-  --accent: #fd70a0;
+  --accent: #a855f7;
   --accent-foreground: #0a0a0a;
 
-  --muted: oklch(0.25 0.03 345);
-  --muted-foreground: oklch(0.8 0.05 345);
+  --muted: oklch(0.25 0.03 270);
+  --muted-foreground: oklch(0.8 0.05 270);
 
   --destructive: oklch(0.57 0.24 27.3);
 
-  --border: oklch(0.32 0.04 345);
-  --input: oklch(0.32 0.04 345);
-  --ring: oklch(0.72 0.15 345);
+  --border: oklch(0.32 0.04 270);
+  --input: oklch(0.32 0.04 270);
+  --ring: oklch(0.72 0.15 270);
 
-  --chart-1: oklch(0.72 0.15 345);
-  --chart-2: oklch(0.65 0.18 345);
-  --chart-3: oklch(0.55 0.2 345);
-  --chart-4: oklch(0.45 0.18 345);
-  --chart-5: oklch(0.35 0.15 345);
+  --chart-1: oklch(0.72 0.15 270);
+  --chart-2: oklch(0.65 0.18 270);
+  --chart-3: oklch(0.55 0.2 270);
+  --chart-4: oklch(0.45 0.18 270);
+  --chart-5: oklch(0.35 0.15 270);
 }
 
 @layer base {
@@ -140,9 +153,27 @@
   }
   body {
     @apply bg-background text-foreground antialiased transition-colors duration-500;
-    background-image: radial-gradient(circle, color-mix(in srgb, var(--foreground) 8%, transparent) 1.5px, transparent 1.5px);
+    background-image: radial-gradient(circle, color-mix(in srgb, var(--foreground) 4%, transparent) 1.5px, transparent 1.5px);
     background-size: 24px 24px;
     background-repeat: repeat;
+  }
+
+  body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    opacity: 0.02;
+    pointer-events: none;
+    z-index: 9999;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    transition: opacity 0.5s ease;
+  }
+
+  .dark body::after {
+    opacity: 0.01;
   }
 }
 
@@ -168,7 +199,7 @@
   }
 
   .text-gradient {
-    background: linear-gradient(125deg, #fd70a0 0%, #d6497a 100%);
+    background: linear-gradient(125deg, #a855f7 0%, #7c3aed 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -232,4 +263,15 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+/* Scoped to AnimatedThemeToggler — the toggler sets the data-attribute and the variable only during a theme toggle. */
+html[data-magicui-theme-vt="active"]::view-transition-group(root) {
+  animation-duration: var(--magicui-theme-toggle-vt-duration);
 }

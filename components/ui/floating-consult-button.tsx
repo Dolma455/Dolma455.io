@@ -51,6 +51,7 @@ export function FloatingConsultButton({
     >
       {/* ── Main button ── */}
       <motion.button
+        data-fcb-outer="true"
         aria-label="Open contact form"
         title="Get in touch"
         className="relative cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-full block"
@@ -94,6 +95,7 @@ export function FloatingConsultButton({
         {/* ── Center avatar ── */}
         <div className="absolute inset-0 flex items-center justify-center">
           <div
+            data-fcb-inner="true"
             className="rounded-full overflow-hidden ring-2 ring-border shadow-xl transition-shadow group-hover:shadow-2xl"
             style={{ width: smImg, height: smImg }}
           >

@@ -125,11 +125,8 @@ const STYLES = `
 
 /* Metallic Text Glow */
 .footer-text-glow {
-  background: linear-gradient(180deg, var(--foreground) 0%, color-mix(in oklch, var(--foreground) 40%, transparent) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  filter: drop-shadow(0px 0px 20px color-mix(in oklch, var(--foreground) 15%, transparent));
+  color: #a855f7;
+  filter: drop-shadow(0px 0px 28px rgba(168, 85, 247, 0.35));
 }
 `;
 
