@@ -11,8 +11,8 @@ const whyteFont = localFont({
 })
 
 export const metadata: Metadata = {
-  title: "DolmaLama",
-  description: "Portfolio of DolmaLama",
+  title: "Dolma Lama",
+  description: "UI/UX Designer & Flutter Developer",
   icons: {
     icon: "/icon.svg",
   },

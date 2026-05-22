@@ -108,7 +108,7 @@ export function Services() {
         <div 
           ref={containerRef} 
           onMouseMove={handleMove} 
-          className="hidden lg:block relative w-full max-w-5xl mx-auto border-t border-b border-neutral-200/20 dark:border-neutral-800/60"
+          className="hidden lg:block relative w-full max-w-5xl mx-auto border-y-2 border-neutral-300/60 dark:border-neutral-800/60"
         >
           {allServices.map((item) => {
             const isPrimary = item.accent === "primary"
@@ -118,7 +118,7 @@ export function Services() {
                 onMouseEnter={() => handleImageInteraction(item, 1)}
                 onMouseMove={() => handleImageInteraction(item, 1)}
                 onMouseLeave={() => handleImageInteraction(item, 0)}
-                className="group w-full py-10 cursor-pointer flex justify-between items-center border-b last:border-none border-neutral-200/20 dark:border-neutral-800/60"
+                className="group w-full py-10 cursor-pointer flex justify-between items-center border-b-2 last:border-none border-neutral-300/60 dark:border-neutral-800/60"
               >
                 <div className="flex items-center">
                   <div>
@@ -158,7 +158,7 @@ export function Services() {
               ref={imageRef}
               src={img.src}
               alt={img.alt}
-              className="w-[320px] h-[240px] rounded-2xl object-cover absolute top-0 left-0 transition-opacity duration-300 ease-in-out pointer-events-none shadow-2xl border-2 border-neutral-200/20 dark:border-neutral-800/40 z-50 bg-background"
+              className="w-[320px] h-[240px] rounded-2xl object-cover absolute top-0 left-0 transition-opacity duration-300 ease-in-out pointer-events-none shadow-2xl border-2 border-neutral-300/50 dark:border-neutral-800/40 z-50 bg-background"
               style={{
                 x: imagePos.x,
                 y: imagePos.y,
@@ -179,7 +179,7 @@ export function Services() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1, duration: 0.4 }}
-                className="relative overflow-hidden rounded-3xl border border-neutral-200/20 dark:border-neutral-800/60 bg-neutral-900/10 dark:bg-neutral-950/20 backdrop-blur-md p-6 flex flex-col justify-between h-[420px]"
+                className="relative overflow-hidden rounded-3xl border-y-2 border-x border-neutral-300/60 dark:border-neutral-800/60 bg-neutral-900/10 dark:bg-neutral-950/20 backdrop-blur-md p-6 flex flex-col justify-between h-[420px]"
               >
                 <div>
                   <div className="relative h-48 overflow-hidden rounded-2xl border border-neutral-200/10 dark:border-neutral-800/40 mb-6">

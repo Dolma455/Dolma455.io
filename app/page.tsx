@@ -1,12 +1,12 @@
 import { Hero } from "@/components/hero"
+import { Header } from "@/components/header"
+import { CinematicFooter } from "@/components/ui/motion-footer"
+import { Contact } from "@/components/contact"
 import { FloatingConsultButton } from "@/components/ui/floating-consult-button"
 import { About } from "@/components/about"
 import { Services } from "@/components/services"
 import { Portfolio } from "@/components/portfolio"
 import { Experience } from "@/components/experience"
-import { Contact } from "@/components/contact"
-import { Header } from "@/components/header"
-import { CinematicFooter } from "@/components/ui/motion-footer"
 
 export default function Home() {
   return (

@@ -178,6 +178,12 @@ export const AnimatedThemeToggler = ({
 
     const applyTheme = () => {
       const nextTheme = resolvedTheme === "dark" ? "light" : "dark"
+      // Synchronously toggle class for document.documentElement so view transition captures the updated state
+      if (nextTheme === "dark") {
+        document.documentElement.classList.add("dark")
+      } else {
+        document.documentElement.classList.remove("dark")
+      }
       setTheme(nextTheme)
     }
 

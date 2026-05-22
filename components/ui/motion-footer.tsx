@@ -5,7 +5,7 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { cn } from "@/lib/utils";
-import { Mail, Briefcase, Github, Linkedin, ArrowUp } from "lucide-react";
+import { Mail, Github, Linkedin, ArrowUp } from "lucide-react";
 
 // Register ScrollTrigger safely for React
 if (typeof window !== "undefined") {
@@ -324,19 +324,11 @@ export function CinematicFooter() {
           {/* Interactive Magnetic Pills Layout */}
           <div ref={linksRef} className="flex flex-row flex-nowrap justify-start md:justify-center items-center gap-3 md:gap-4 w-full overflow-x-auto scrollbar-none py-3 px-4">
             <MagneticButton 
-              onClick={() => handleScrollToSection("contact")} 
+              onClick={() => window.dispatchEvent(new CustomEvent("open-contact-modal"))} 
               className="footer-glass-pill px-6 md:px-8 py-3.5 md:py-4 rounded-full text-foreground font-bold text-xs md:text-base flex items-center gap-2.5 group whitespace-nowrap flex-shrink-0"
             >
               <Mail className="w-4 h-4 md:w-5 md:h-5 text-muted-foreground group-hover:text-foreground transition-colors" />
               Get In Touch
-            </MagneticButton>
-            
-            <MagneticButton 
-              onClick={() => handleScrollToSection("portfolio")} 
-              className="footer-glass-pill px-6 md:px-8 py-3.5 md:py-4 rounded-full text-foreground font-bold text-xs md:text-base flex items-center gap-2.5 group whitespace-nowrap flex-shrink-0"
-            >
-              <Briefcase className="w-4 h-4 md:w-5 md:h-5 text-muted-foreground group-hover:text-foreground transition-colors" />
-              View Projects
             </MagneticButton>
 
             <MagneticButton 
