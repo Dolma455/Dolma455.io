@@ -26,7 +26,7 @@ export default function Home() {
         imageAlt="Dolma Lama — get in touch"
         revolvingText="GET IN TOUCH · LET'S TALK · FREE CONSULT · "
         revolvingSpeed={12}
-        position={{ bottom: "2rem", left: "2rem" }}
+        position={{ bottom: "2rem", right: "2rem" }}
       />
     </div>
   )
