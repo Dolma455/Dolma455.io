@@ -30,20 +30,20 @@ export default function RootLayout({
          * Anti-flash script: runs synchronously before React hydrates.
          * Reads localStorage.theme and applies the 'dark' class immediately,
          * so there is never a light→dark flicker on load.
-         * Defaults to light mode when no preference has been saved.
+         * Defaults to dark mode when no preference has been saved.
          */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem('theme');if(t==='dark'){document.documentElement.classList.add('dark')}else{document.documentElement.classList.remove('dark')}}catch(e){}})();`,
+            __html: `(function(){try{var t=localStorage.getItem('theme');if(t==='light'){document.documentElement.classList.remove('dark')}else{document.documentElement.classList.add('dark')}}catch(e){}})();`,
           }}
         />
         {/*
          * storageKey="theme" keeps next-themes in sync with the same
          * localStorage key used by the inline script above.
-         * defaultTheme="light" + no enableSystem mirrors the reference
-         * behaviour: light unless the user has explicitly chosen dark.
+         * defaultTheme="dark" + no enableSystem mirrors the reference
+         * behaviour: dark unless the user has explicitly chosen light.
          */}
-        <ThemeProvider attribute="class" defaultTheme="light" storageKey="theme">
+        <ThemeProvider attribute="class" defaultTheme="dark" storageKey="theme">
           {children}
         </ThemeProvider>
       </body>
