@@ -53,7 +53,7 @@ function QuestionMarkEmblem({ className }: { className?: string }) {
 
 export function HeroSection03() {
   return (
-    <div className="min-h-[85vh] relative overflow-hidden text-foreground flex flex-col justify-center pt-12 md:pt-16 pb-12">
+    <div className="min-h-[85vh] relative overflow-hidden text-foreground flex flex-col justify-center pt-8 md:pt-10 pb-12 -mt-3 md:-mt-5">
 
       {/* 2. Main Large-Text Showcase Section */}
       <main className="relative z-10 flex-1 flex flex-col justify-center px-4 md:px-12 py-12 w-full max-w-7xl mx-auto">
