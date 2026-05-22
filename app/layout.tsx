@@ -25,7 +25,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${whyteFont.variable} ${whyteFont.className} antialiased`}>
+      <body className={`${whyteFont.variable} ${whyteFont.className} antialiased`} suppressHydrationWarning>
         {/*
          * Anti-flash script: runs synchronously before React hydrates.
          * Reads localStorage.theme and applies the 'dark' class immediately,
