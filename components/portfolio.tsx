@@ -54,7 +54,7 @@ export function Portfolio() {
       case "agrilink":
         return <Leaf className="h-5 w-5 text-lime-500 dark:text-lime-400" />
       case "loyaledge":
-        return <Crown className="h-5 w-5 text-pink-500 dark:text-pink-400" />
+        return <Crown className="h-5 w-5 text-primary" />
       default:
         return <Globe className="h-5 w-5 text-muted-foreground" />
     }
@@ -81,7 +81,7 @@ export function Portfolio() {
       case "agrilink":
         return "bg-lime-500/10 border-lime-500/20"
       case "loyaledge":
-        return "bg-pink-500/10 border-pink-500/20"
+        return "bg-primary/10 border-primary/20"
       default:
         return "bg-muted/40 border-border/40"
     }

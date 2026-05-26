@@ -71,32 +71,32 @@
   --popover: #fffbfa;
   --popover-foreground: #1d181c;
 
-  /* Primary Pink */
-  --primary: #ff8da1; /* soft pink */
+  /* Primary Theme Color */
+  --primary: #F24343; /* rich red */
   --primary-foreground: #ffffff;
 
-  /* Secondary Pink */
-  --secondary: #ff6f9a; /* deeper pink */
+  /* Secondary Theme Color */
+  --secondary: #d63232; /* deeper red */
   --secondary-foreground: #ffffff;
 
-  /* Accent Pink */
-  --accent: #ff8da1;
+  /* Accent Theme Color */
+  --accent: #F24343;
   --accent-foreground: #ffffff;
 
   /* Muted */
-  --muted: #ffeef4;
-  --muted-foreground: #9b1f45;
+  --muted: #ffebeb;
+  --muted-foreground: #a61c1c;
 
   --destructive: #ff4757;
 
-  --border: #ffdce6;
-  --input: #ffeef4;
-  --ring: #ff8da1;
+  --border: #ffd5d8;
+  --input: #ffebeb;
+  --ring: #F24343;
 
-  --chart-1: #ff8da1;
-  --chart-2: #ff6f9a;
-  --chart-3: #d6336c;
-  --chart-4: #ffdce6;
+  --chart-1: #F24343;
+  --chart-2: #d63232;
+  --chart-3: #b01a1a;
+  --chart-4: #ffd5d8;
   --chart-5: #faf5ee;
 }
 
@@ -110,13 +110,13 @@
   --popover: #1a1618;
   --popover-foreground: #fdfbfb;
 
-  --primary: #ff8da1;
+  --primary: #F24343;
   --primary-foreground: #0a0a0a;
 
-  --secondary: #ff6f9a;
+  --secondary: #d63232;
   --secondary-foreground: #0a0a0a;
 
-  --accent: #ff8da1;
+  --accent: #F24343;
   --accent-foreground: #0a0a0a;
 
   --muted: oklch(0.25 0.03 270);
@@ -199,7 +199,7 @@
   }
 
   .text-gradient {
-    background: linear-gradient(125deg, #ff8da1 0%, #ff6f9a 100%);
+    background: linear-gradient(125deg, #F24343 0%, #d63232 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
