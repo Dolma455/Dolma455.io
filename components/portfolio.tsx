@@ -9,19 +9,21 @@ import {
   Infinity,
   TrendingUp,
   UserCheck,
-  MessageSquareCode,
   Crown,
-  Wallet,
   Globe,
+  Smartphone,
+  Building2,
+  Leaf,
+  Users,
   FileText
 } from "lucide-react"
 import Image from "next/image"
-import { projects } from "@/lib/projects"
-import { cn } from "@/lib/utils"
-import { GradientText } from "@/components/effects/text-effects"
+import { projects } from "../lib/projects"
+import { cn } from "../lib/utils"
+import { GradientText } from "./effects/text-effects"
 
 export function Portfolio() {
-  const [openProject, setOpenProject] = useState<string | null>("connect-infinity")
+  const [openProject, setOpenProject] = useState<string | null>(projects[0]?.slug ?? null)
   const [showAll, setShowAll] = useState(false)
 
   const displayedProjects = showAll ? projects : projects.slice(0, 4)
@@ -33,18 +35,26 @@ export function Portfolio() {
   // Icons custom mapping for projects
   const getProjectIcon = (slug: string) => {
     switch (slug) {
+      case "self-service-app":
+        return <Smartphone className="h-5 w-5 text-sky-500 dark:text-sky-400" />
+      case "naasa-website":
+        return <Globe className="h-5 w-5 text-emerald-500 dark:text-emerald-400" />
       case "connect-infinity":
+        return <Infinity className="h-5 w-5 text-indigo-500 dark:text-indigo-400" />
+      case "connect-infinity-product-page":
         return <Infinity className="h-5 w-5 text-indigo-500 dark:text-indigo-400" />
       case "naasa-x":
         return <TrendingUp className="h-5 w-5 text-orange-500 dark:text-orange-400" />
       case "naasa-kyc":
         return <UserCheck className="h-5 w-5 text-blue-500 dark:text-blue-400" />
-      case "revai":
-        return <MessageSquareCode className="h-5 w-5 text-purple-500 dark:text-purple-400" />
+      case "nepal-stock-house-website":
+        return <Building2 className="h-5 w-5 text-amber-500 dark:text-amber-400" />
+      case "crm":
+        return <Users className="h-5 w-5 text-fuchsia-500 dark:text-fuchsia-400" />
+      case "agrilink":
+        return <Leaf className="h-5 w-5 text-lime-500 dark:text-lime-400" />
       case "loyaledge":
         return <Crown className="h-5 w-5 text-pink-500 dark:text-pink-400" />
-      case "naasa-wallet":
-        return <Wallet className="h-5 w-5 text-emerald-500 dark:text-emerald-400" />
       default:
         return <Globe className="h-5 w-5 text-muted-foreground" />
     }
@@ -52,18 +62,26 @@ export function Portfolio() {
 
   const getProjectIconBg = (slug: string) => {
     switch (slug) {
+      case "self-service-app":
+        return "bg-sky-500/10 border-sky-500/20"
+      case "naasa-website":
+        return "bg-emerald-500/10 border-emerald-500/20"
       case "connect-infinity":
+        return "bg-indigo-500/10 border-indigo-500/20"
+      case "connect-infinity-product-page":
         return "bg-indigo-500/10 border-indigo-500/20"
       case "naasa-x":
         return "bg-orange-500/10 border-orange-500/20"
       case "naasa-kyc":
         return "bg-blue-500/10 border-blue-500/20"
-      case "revai":
-        return "bg-purple-500/10 border-purple-500/20"
+      case "nepal-stock-house-website":
+        return "bg-amber-500/10 border-amber-500/20"
+      case "crm":
+        return "bg-fuchsia-500/10 border-fuchsia-500/20"
+      case "agrilink":
+        return "bg-lime-500/10 border-lime-500/20"
       case "loyaledge":
         return "bg-pink-500/10 border-pink-500/20"
-      case "naasa-wallet":
-        return "bg-emerald-500/10 border-emerald-500/20"
       default:
         return "bg-muted/40 border-border/40"
     }
