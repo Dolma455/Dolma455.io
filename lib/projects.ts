@@ -46,7 +46,7 @@ export const projects: Project[] = [
     summary: "A self-service mobile app for account management, support, and KYC actions.",
     description:
       "A self-service mobile app that I designed and contributed to development for, helping users manage their profile, requests, and account workflows from one place.",
-    image: "/image/projects/ssa_dashboard.PNG",
+    image: "/image/projects/ssa_dashbaord.PNG",
     tags: ["Mobile App", "Self Service", "Onboarding"],
     featured: true,
     year: "2025",
@@ -68,7 +68,7 @@ export const projects: Project[] = [
     screenshots: actualScreenshots("Self Service App(SSA)", [
       { label: "Login", src: "/image/projects/ssa_login.PNG" },
       { label: "Sidebar", src: "/image/projects/ssa_sidebar.PNG" },
-      { label: "Dashboard", src: "/image/projects/ssa_dashboard.PNG" },
+      { label: "Dashboard", src: "/image/projects/ssa_dashbaord.PNG" },
       { label: "Portfolio", src: "/image/projects/ssa_portfolio.PNG" },
       { label: "Order", src: "/image/projects/ssa_order.PNG" },
       { label: "KYC", src: "/image/projects/ssa_kyc.PNG" },
