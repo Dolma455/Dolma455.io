@@ -38,7 +38,7 @@ export function DockNavbar() {
       customElement: (
         <button
           onClick={() => handleScroll("home")}
-          className="relative px-2 flex items-center justify-center cursor-pointer pointer-events-auto border-none bg-transparent outline-none focus:outline-none font-black tracking-widest text-sm text-purple-600 dark:text-purple-400 hover:opacity-80 transition-opacity"
+          className="relative px-2 flex items-center justify-center cursor-pointer pointer-events-auto border-none bg-transparent outline-none focus:outline-none font-black tracking-widest text-sm text-pink-600 dark:text-pink-400 hover:opacity-80 transition-opacity"
         >
           DOLMA
         </button>

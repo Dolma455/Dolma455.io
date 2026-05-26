@@ -1,12 +1,12 @@
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { GridBackground } from "@/components/ui/grid-background"
-import { SpotlightCard } from "@/components/ui/spotlight-card"
 import { getProjectBySlug, projects } from "@/lib/projects"
 import { ArrowLeft, ExternalLink } from "lucide-react"
 import type { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
+import { IphoneMockup } from "@/components/effects/iphone-mockup"
 import { notFound } from "next/navigation"
 
 type ProjectPageProps = {
@@ -54,8 +54,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
             </Link>
           </Button>
         </div>
-
-        <div className="grid gap-10 lg:grid-cols-[1.3fr_0.7fr]">
+        <div className="space-y-10">
           <article className="space-y-8">
             <div className="space-y-4">
               <div className="flex flex-wrap items-center gap-2">
@@ -71,66 +70,23 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
               <p className="max-w-3xl text-lg text-muted-foreground">{project.description}</p>
             </div>
 
-            <div className="relative overflow-hidden rounded-3xl border border-border/70 bg-card/70 p-2 backdrop-blur-xl">
-              <Image
-                src={project.image}
-                alt={project.title}
-                width={1280}
-                height={720}
-                className="relative w-full rounded-[1.2rem] object-cover"
-                priority
-              />
-            </div>
-
-            <section className="grid gap-6 md:grid-cols-2">
-              <SpotlightCard>
-                <h2 className="text-lg font-semibold text-foreground">The Challenge</h2>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{project.problem}</p>
-              </SpotlightCard>
-              <SpotlightCard>
-                <h2 className="text-lg font-semibold text-foreground">The Approach</h2>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{project.solution}</p>
-              </SpotlightCard>
-            </section>
-
-            <section className="rounded-3xl border border-border/70 bg-card/70 p-7 backdrop-blur-xl">
-              <h2 className="text-xl font-semibold text-foreground">Impact</h2>
-              <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
-                {project.impact.map((point) => (
-                  <li key={point} className="flex gap-3">
-                    <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-accent" />
-                    <span>{point}</span>
-                  </li>
-                ))}
-              </ul>
-            </section>
-          </article>
-
-          <aside className="h-fit space-y-6 lg:sticky lg:top-28">
-            <SpotlightCard className="space-y-4">
-              <h2 className="text-lg font-semibold text-foreground">Project Snapshot</h2>
-              <div className="space-y-3 text-sm">
-                <div className="flex items-start justify-between gap-6 border-b border-border/50 pb-2">
-                  <span className="text-muted-foreground">Year</span>
-                  <span className="font-medium">{project.year}</span>
+            <section className="rounded-3xl border border-border/70 bg-card/70 p-6 backdrop-blur-xl">
+              <div className="flex flex-wrap items-center justify-between gap-4">
+                <div>
+                  <h2 className="text-lg font-semibold text-foreground">Contribution</h2>
                 </div>
-                <div className="flex items-start justify-between gap-6 border-b border-border/50 pb-2">
-                  <span className="text-muted-foreground">Role</span>
-                  <span className="text-right font-medium">{project.role}</span>
-                </div>
-                <div className="flex items-start justify-between gap-6 border-b border-border/50 pb-2">
-                  <span className="text-muted-foreground">Client</span>
-                  <span className="text-right font-medium">{project.client}</span>
-                </div>
-                <div className="flex items-start justify-between gap-6">
-                  <span className="text-muted-foreground">Duration</span>
-                  <span className="font-medium">{project.duration}</span>
+                <div className="flex flex-wrap gap-2">
+                  <Badge variant="outline" className="rounded-full border-primary/30 bg-primary/5 text-primary">
+                    {project.year}
+                  </Badge>
+                  <Badge variant="outline" className="rounded-full border-primary/30 bg-primary/5 text-primary">
+                    {project.role}
+                  </Badge>
+                  <Badge variant="outline" className="rounded-full border-primary/30 bg-primary/5 text-primary">
+                    {project.client}
+                  </Badge>
                 </div>
               </div>
-            </SpotlightCard>
-
-            <SpotlightCard>
-              <h3 className="text-base font-semibold text-foreground">Process</h3>
               <div className="mt-4 flex flex-wrap gap-2">
                 {project.process.map((step) => (
                   <Badge key={step} variant="outline" className="rounded-full border-primary/30 bg-primary/5 text-primary">
@@ -138,17 +94,74 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                   </Badge>
                 ))}
               </div>
-            </SpotlightCard>
+            </section>
 
-            {project.liveUrl ? (
-              <Button asChild className="w-full rounded-full bg-primary hover:bg-primary/90">
+            <section className="space-y-4">
+              <div className="flex items-end justify-between gap-4">
+                <div>
+                  <h2 className="text-xl font-semibold text-foreground">Screenshots</h2>
+                </div>
+                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+                  {project.screenshots.length} Views
+                </span>
+              </div>
+
+              {project.slug === "self-service-app" ? (
+                <div className="flex gap-6 overflow-x-auto py-4">
+                  {project.screenshots.map((screenshot) => (
+                    <div key={screenshot.label} className="w-[220px] flex-shrink-0">
+                      <IphoneMockup screenshot={screenshot} device="phone" />
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div className="grid auto-rows-[180px] gap-6 md:grid-cols-12 md:auto-rows-[220px]">
+                  {project.screenshots.map((screenshot, index) => {
+                    const cellClass =
+                      index % 4 === 0
+                        ? "md:col-span-8 md:row-span-2"
+                        : index % 4 === 1
+                          ? "md:col-span-4 md:row-span-2"
+                          : index % 4 === 2
+                            ? "md:col-span-4"
+                            : "md:col-span-8"
+
+                    return (
+                      <div key={screenshot.label} className={`relative overflow-hidden rounded-[2rem] border border-border/60 bg-card/70 ${cellClass}`}>
+                        {screenshot.placeholder || !screenshot.src ? (
+                          <div className="flex h-full w-full items-center justify-center bg-muted/20 px-6 text-center">
+                            <div className="space-y-2">
+                              <p className="text-sm font-semibold text-foreground">{screenshot.label}</p>
+                              <p className="text-xs text-muted-foreground">Screenshot coming soon</p>
+                            </div>
+                          </div>
+                        ) : (
+                          <Image
+                            src={screenshot.src}
+                            alt={screenshot.label}
+                            fill
+                            sizes="(max-width: 768px) 100vw, 50vw"
+                            className="object-cover"
+                          />
+                        )}
+                      </div>
+                    )
+                  })}
+                </div>
+              )}
+            </section>
+          </article>
+
+          {project.liveUrl ? (
+            <div className="flex justify-start">
+              <Button asChild className="rounded-full bg-primary hover:bg-primary/90">
                 <Link href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                   <ExternalLink className="mr-2 h-4 w-4" />
                   Visit Live Product
                 </Link>
               </Button>
-            ) : null}
-          </aside>
+            </div>
+          ) : null}
         </div>
       </main>
     </div>
