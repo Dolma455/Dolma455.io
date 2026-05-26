@@ -31,34 +31,34 @@ const companies: Company[] = [
     isCurrent: true,
     roles: [
       {
-        title: "Full-Stack Developer & Product Designer",
+        title: "UX/UI Designer & Flutter Developer",
         type: "Full-time",
         from: "01.2023",
         to: "∞",
         bullets: [
           "Led development and design of multiple client-facing projects and internal tools at Cognix Insights.",
-          "Built and shipped end-to-end web apps using Next.js, React and TypeScript; designed interfaces and prototypes in Figma.",
+          "Built and shipped end-to-end mobile apps using Flutter and Dart; designed interfaces and prototypes in Figma.",
           "Owned feature delivery, from requirements and UX to implementation and deployment.",
           "Collaborated with cross-functional teams to iterate on product requirements and improve performance and UX.",
         ],
-        tags: ["Next.js", "React", "TypeScript", "Figma", "Node.js", "Design Systems"],
+        tags: ["Flutter", "Dart", "Figma", "UI/UX Design"],
       },
     ],
   },
   {
-    name: "Sunrise Secondary School",
+    name: "Sunshine Secondary School",
     initials: "SS",
     color: "bg-emerald-500/20 text-emerald-400 border-emerald-500/30",
     isCurrent: false,
     roles: [
       {
-        title: "Mathematics Teacher",
+        title: "Computer Teacher",
         type: "Part-time",
         from: "2019",
         to: "2022",
         bullets: [
-          "Taught mathematics to secondary school students and prepared lesson plans and assessments.",
-          "Mentored students, organised extracurricular math activities, and supported exam preparation.",
+          "Taught programming and computer basics to secondary school students, and prepared lesson plans and assessments.",
+          "Mentored students, organised extracurricular computer activities, and supported exam preparation.",
         ],
         tags: ["Teaching", "Curriculum", "Mentoring", "Assessment"],
       },
