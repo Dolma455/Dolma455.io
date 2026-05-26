@@ -124,9 +124,9 @@ const STYLES = `
 }
 
 /* Metallic Text Glow */
-.footer-text-glow {
-  color: #a855f7;
-  filter: drop-shadow(0px 0px 28px rgba(168, 85, 247, 0.35));
+  .footer-text-glow {
+  color: #ff8da1;
+  filter: drop-shadow(0px 0px 28px rgba(255, 141, 161, 0.35));
 }
 `;
 
