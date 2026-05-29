@@ -10,7 +10,7 @@ interface GradientTextProps {
   delay?: number
 }
 
-export function GradientText({ children, from = "#F24343", to = "#d63232", delay = 0 }: GradientTextProps) {
+export function GradientText({ children, from = "#9FA1FF", to = "#B5BAFF", delay = 0 }: GradientTextProps) {
   return (
     <motion.span
       initial={{ backgroundPosition: "0% center" }}
@@ -38,13 +38,13 @@ interface ShimmerTextProps {
 export function ShimmerText({ children, delay = 0 }: ShimmerTextProps) {
   return (
     <motion.span
-      initial={{ opacity: 0.5, textShadow: "0 0 10px rgba(242,67,67,0)" }}
+      initial={{ opacity: 0.5, textShadow: "0 0 10px rgba(159,161,255,0)" }}
       animate={{
         opacity: [0.5, 1, 0.5],
         textShadow: [
-          "0 0 10px rgba(242,67,67,0)",
-          "0 0 20px rgba(242,67,67,0.8)",
-          "0 0 10px rgba(242,67,67,0)",
+          "0 0 10px rgba(159,161,255,0)",
+          "0 0 20px rgba(159,161,255,0.8)",
+          "0 0 10px rgba(159,161,255,0)",
         ],
       }}
       transition={{ duration: 2.5, repeat: Infinity, delay }}

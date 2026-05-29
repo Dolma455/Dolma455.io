@@ -125,8 +125,8 @@ const STYLES = `
 
 /* Metallic Text Glow */
   .footer-text-glow {
-  color: #F24343;
-  filter: drop-shadow(0px 0px 28px rgba(242, 67, 67, 0.35));
+  color: #9FA1FF;
+  filter: drop-shadow(0px 0px 28px rgba(159,161,255,0.35));
 }
 `;
 

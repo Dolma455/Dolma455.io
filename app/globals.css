@@ -72,32 +72,32 @@
   --popover-foreground: #1d181c;
 
   /* Primary Theme Color */
-  --primary: #F24343; /* rich red */
+  --primary: #9FA1FF; /* purple */
   --primary-foreground: #ffffff;
 
   /* Secondary Theme Color */
-  --secondary: #d63232; /* deeper red */
+  --secondary: #B5BAFF; /* lighter purple */
   --secondary-foreground: #ffffff;
 
   /* Accent Theme Color */
-  --accent: #F24343;
+  --accent: #B5BAFF;
   --accent-foreground: #ffffff;
 
   /* Muted */
-  --muted: #ffebeb;
-  --muted-foreground: #a61c1c;
+  --muted: #f3f4ff;
+  --muted-foreground: #5b57a8;
 
-  --destructive: #ff4757;
+  --destructive: #cbbcff;
 
-  --border: #ffd5d8;
-  --input: #ffebeb;
-  --ring: #F24343;
+  --border: #e6e8ff;
+  --input: #f6f6ff;
+  --ring: #9FA1FF;
 
-  --chart-1: #F24343;
-  --chart-2: #d63232;
-  --chart-3: #b01a1a;
-  --chart-4: #ffd5d8;
-  --chart-5: #faf5ee;
+  --chart-1: #9FA1FF;
+  --chart-2: #B5BAFF;
+  --chart-3: #7f7fff;
+  --chart-4: #e6e8ff;
+  --chart-5: #faf5ff;
 }
 
 .dark {
@@ -110,29 +110,29 @@
   --popover: #1a1618;
   --popover-foreground: #fdfbfb;
 
-  --primary: #F24343;
+  --primary: #9FA1FF;
   --primary-foreground: #0a0a0a;
 
-  --secondary: #d63232;
+  --secondary: #B5BAFF;
   --secondary-foreground: #0a0a0a;
 
-  --accent: #F24343;
+  --accent: #B5BAFF;
   --accent-foreground: #0a0a0a;
 
-  --muted: oklch(0.25 0.03 270);
-  --muted-foreground: oklch(0.8 0.05 270);
+  --muted: oklch(0.22 0.04 260);
+  --muted-foreground: oklch(0.8 0.05 260);
 
-  --destructive: oklch(0.57 0.24 27.3);
+  --destructive: #b89cff;
 
-  --border: oklch(0.32 0.04 270);
-  --input: oklch(0.32 0.04 270);
-  --ring: oklch(0.72 0.15 270);
+  --border: oklch(0.28 0.04 260);
+  --input: oklch(0.28 0.04 260);
+  --ring: #9FA1FF;
 
-  --chart-1: oklch(0.72 0.15 270);
-  --chart-2: oklch(0.65 0.18 270);
-  --chart-3: oklch(0.55 0.2 270);
-  --chart-4: oklch(0.45 0.18 270);
-  --chart-5: oklch(0.35 0.15 270);
+  --chart-1: #9FA1FF;
+  --chart-2: #B5BAFF;
+  --chart-3: #7f7fff;
+  --chart-4: oklch(0.45 0.18 260);
+  --chart-5: oklch(0.35 0.15 260);
 }
 
 @layer base {
@@ -199,7 +199,7 @@
   }
 
   .text-gradient {
-    background: linear-gradient(125deg, #F24343 0%, #d63232 100%);
+    background: linear-gradient(125deg, #9FA1FF 0%, #B5BAFF 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;

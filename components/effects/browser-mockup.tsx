@@ -7,7 +7,7 @@ export function BrowserMockup({ screenshot, className }: { screenshot: ProjectSc
     <div className={cn("relative mx-auto w-full", className)}>
       <div className="relative overflow-hidden rounded-[1rem] border border-white/8 bg-gradient-to-br from-slate-50 to-white shadow-[0_30px_80px_rgba(2,6,23,0.18)] dark:from-slate-900 dark:to-slate-950">
         <div className="h-10 w-full flex items-center px-4 gap-2 bg-transparent">
-          <div className="h-3 w-3 rounded-full bg-red-400/80" />
+          <div className="h-3 w-3 rounded-full bg-[#B5BAFF]/80" />
           <div className="h-3 w-3 rounded-full bg-amber-400/80" />
           <div className="h-3 w-3 rounded-full bg-primary/80" />
         </div>

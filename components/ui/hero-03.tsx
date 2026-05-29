@@ -94,8 +94,8 @@ export function HeroSection03() {
                 >
                   <defs>
                     <linearGradient id="heart-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#F24343" />
-                      <stop offset="100%" stopColor="#d63232" />
+                      <stop offset="0%" stopColor="#9FA1FF" />
+                      <stop offset="100%" stopColor="#B5BAFF" />
                     </linearGradient>
                   </defs>
                   <path
