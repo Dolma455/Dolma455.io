@@ -21,60 +21,32 @@ function PlaceholderScreen({ label }: { label: string }) {
 	)
 }
 
-function ScreenFrame({ screenshot, device }: { screenshot: ProjectScreenshot; device: ProjectDevice }) {
-	const isPhone = device === "phone"
-
-	return (
-		<div
-			className={cn(
-				"relative mx-auto overflow-hidden rounded-[2rem] border border-white/10 bg-slate-950 shadow-[0_35px_90px_rgba(15,23,42,0.35)]",
-				isPhone ? "aspect-[9/18.9] w-full max-w-[20rem]" : "aspect-[16/10] w-full"
-			)}
-		>
-			{screenshot.placeholder || !screenshot.src ? (
-				<PlaceholderScreen label={screenshot.label} />
-			) : (
-				<Image
-					src={screenshot.src}
-					alt={screenshot.label}
-					fill
-					sizes="(max-width: 768px) 100vw, 50vw"
-					className="object-cover"
-				/>
-			)}
-		</div>
-	)
-}
-
 export function IphoneMockup({ screenshot, device = "phone", className }: MockupProps) {
-	const isPhone = device === "phone"
+  const isPhone = device === "phone"
 
-	return (
-		<div className={cn("relative isolate mx-auto flex w-full justify-center perspective-[1600px]", className)}>
-			<div
-				className={cn(
-					"relative w-full max-w-[26rem] rounded-[2.5rem] border border-white/10 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 p-3 shadow-[0_40px_100px_rgba(15,23,42,0.42)] backdrop-blur-xl",
-					isPhone ? "rotate-x-[14deg] rotate-y-[-18deg]" : "rotate-x-[10deg] rotate-y-[-14deg]"
-				)}
-				style={{ transformStyle: "preserve-3d" }}
-			>
-				{isPhone ? (
-					<div className="pointer-events-none absolute inset-x-[33%] top-1 h-5 rounded-b-2xl bg-black/95" />
+  const aspectClass = isPhone ? "aspect-[9/18.9]" : "aspect-[16/10]"
+
+  return (
+		<div className={cn("relative mx-auto", className)}>
+			{/* Phone shell (background) */}
+			<div className={cn("absolute inset-0 flex items-center justify-center pointer-events-none", aspectClass)}>
+				<div className="w-full h-full transform scale-105 rounded-3xl border border-border/30 bg-transparent shadow-[0_10px_30px_rgba(2,6,23,0.06)]" />
+			</div>
+
+			{/* Screenshot container (fits inside shell) */}
+			<div className={cn("relative w-full overflow-hidden rounded-xl border border-border/20 bg-card/70", aspectClass)}>
+				{screenshot.placeholder || !screenshot.src ? (
+					<PlaceholderScreen label={screenshot.label} />
 				) : (
-					<div className="mb-3 flex items-center gap-2 rounded-[1.1rem] border border-white/8 bg-white/5 px-4 py-3">
-						<div className="flex gap-1.5">
-							<span className="h-3 w-3 rounded-full bg-red-400/80" />
-							<span className="h-3 w-3 rounded-full bg-amber-400/80" />
-							<span className="h-3 w-3 rounded-full bg-emerald-400/80" />
-						</div>
-						<div className="mx-auto h-2 w-40 rounded-full bg-white/10" />
-					</div>
+					<Image
+						src={screenshot.src}
+						alt={screenshot.label}
+						fill
+						sizes="(max-width: 768px) 100vw, 50vw"
+						className="object-contain object-center"
+					/>
 				)}
-
-				<div className="overflow-hidden rounded-[1.75rem] border border-white/10 bg-slate-950 p-2">
-					<ScreenFrame screenshot={screenshot} device={device} />
-				</div>
 			</div>
 		</div>
-	)
+  )
 }

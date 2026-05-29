@@ -1,12 +1,14 @@
-import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
+import { Badge } from "@/components/ui/badge"
 import { GridBackground } from "@/components/ui/grid-background"
 import { getProjectBySlug, projects } from "@/lib/projects"
-import { ArrowLeft, ExternalLink } from "lucide-react"
+import { ArrowLeft, ExternalLink, ArrowRight } from "lucide-react"
 import type { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
 import { IphoneMockup } from "@/components/effects/iphone-mockup"
+import BrowserMockup from "@/components/effects/browser-mockup"
+import ScreenshotGallery from "@/components/projects/screenshot-gallery"
 import { notFound } from "next/navigation"
 
 type ProjectPageProps = {
@@ -41,6 +43,9 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
     notFound()
   }
 
+  const currentIndex = projects.findIndex((p) => p.slug === project.slug)
+  const nextProject = projects[(currentIndex + 1) % projects.length]
+
   return (
     <div className="relative min-h-screen overflow-hidden text-foreground">
       <GridBackground className="opacity-45" />
@@ -57,111 +62,91 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
         <div className="space-y-10">
           <article className="space-y-8">
             <div className="space-y-4">
-              <div className="flex flex-wrap items-center gap-2">
-                {project.tags.map((tag) => (
-                  <Badge key={tag} variant="secondary" className="rounded-full border border-primary/30 bg-primary/10 text-primary">
-                    {tag}
-                  </Badge>
-                ))}
-                {project.featured ? <Badge className="rounded-full bg-accent text-accent-foreground">Featured</Badge> : null}
-              </div>
-
               <h1 className="text-gradient text-4xl font-bold tracking-tight md:text-5xl">{project.title}</h1>
-              <p className="max-w-3xl text-lg text-muted-foreground">{project.description}</p>
+              <p className="max-w-3xl text-lg text-foreground/80">{project.summary}</p>
+              <p className="max-w-3xl text-sm leading-7 text-muted-foreground">{project.description}</p>
+              <div className="flex flex-wrap gap-2">
+                <Badge className="rounded-full border-primary/30 bg-primary/10 px-3 py-1 text-xs text-primary">{project.year}</Badge>
+                <Badge className="rounded-full border-primary/30 bg-primary/10 px-3 py-1 text-xs text-primary">{project.role}</Badge>
+                <Badge className="rounded-full border-primary/30 bg-primary/10 px-3 py-1 text-xs text-primary">{project.client}</Badge>
+                <Badge className="rounded-full border-primary/30 bg-primary/10 px-3 py-1 text-xs text-primary">{project.duration}</Badge>
+              </div>
             </div>
 
-            <section className="rounded-3xl border border-border/70 bg-card/70 p-6 backdrop-blur-xl">
-              <div className="flex flex-wrap items-center justify-between gap-4">
-                <div>
-                  <h2 className="text-lg font-semibold text-foreground">Contribution</h2>
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  <Badge variant="outline" className="rounded-full border-primary/30 bg-primary/5 text-primary">
-                    {project.year}
-                  </Badge>
-                  <Badge variant="outline" className="rounded-full border-primary/30 bg-primary/5 text-primary">
-                    {project.role}
-                  </Badge>
-                  <Badge variant="outline" className="rounded-full border-primary/30 bg-primary/5 text-primary">
-                    {project.client}
-                  </Badge>
-                </div>
-              </div>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {project.process.map((step) => (
-                  <Badge key={step} variant="outline" className="rounded-full border-primary/30 bg-primary/5 text-primary">
-                    {step}
-                  </Badge>
-                ))}
-              </div>
-            </section>
-
             <section className="space-y-4">
-              <div className="flex items-end justify-between gap-4">
-                <div>
-                  <h2 className="text-xl font-semibold text-foreground">Screenshots</h2>
-                </div>
-                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
-                  {project.screenshots.length} Views
-                </span>
-              </div>
+              {/* Screenshots header removed per design — screenshots follow below */}
 
-              {project.slug === "self-service-app" ? (
-                <div className="flex gap-6 overflow-x-auto py-4">
-                  {project.screenshots.map((screenshot) => (
-                    <div key={screenshot.label} className="w-[220px] flex-shrink-0">
-                      <IphoneMockup screenshot={screenshot} device="phone" />
-                    </div>
-                  ))}
-                </div>
+              {project.device === "phone" ? (
+                project.slug === "self-service-app" ? (
+                  (() => {
+                    const ssaImages = project.screenshots.filter((s) => s.src && s.src.includes("ssa_"))
+                    return <ScreenshotGallery screenshots={ssaImages} />
+                  })()
+                ) : (
+                  <div className="flex gap-6 overflow-x-auto py-4">
+                    {project.screenshots.map((screenshot) => (
+                      <div key={screenshot.label} className="w-[220px] flex-shrink-0">
+                        <IphoneMockup screenshot={screenshot} device="phone" />
+                      </div>
+                    ))}
+                  </div>
+                )
               ) : (
-                <div className="grid auto-rows-[180px] gap-6 md:grid-cols-12 md:auto-rows-[220px]">
-                  {project.screenshots.map((screenshot, index) => {
-                    const cellClass =
-                      index % 4 === 0
-                        ? "md:col-span-8 md:row-span-2"
-                        : index % 4 === 1
-                          ? "md:col-span-4 md:row-span-2"
-                          : index % 4 === 2
-                            ? "md:col-span-4"
-                            : "md:col-span-8"
-
-                    return (
-                      <div key={screenshot.label} className={`relative overflow-hidden rounded-[2rem] border border-border/60 bg-card/70 ${cellClass}`}>
-                        {screenshot.placeholder || !screenshot.src ? (
-                          <div className="flex h-full w-full items-center justify-center bg-muted/20 px-6 text-center">
-                            <div className="space-y-2">
-                              <p className="text-sm font-semibold text-foreground">{screenshot.label}</p>
-                              <p className="text-xs text-muted-foreground">Screenshot coming soon</p>
+                <div className="flex flex-col gap-6">
+                  {(() => {
+                    const pairs: typeof project.screenshots[] = []
+                    for (let i = 0; i < project.screenshots.length; i += 2) {
+                      pairs.push(project.screenshots.slice(i, i + 2))
+                    }
+                    return pairs.map((pair, idx) => (
+                      <div key={idx} className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
+                        {pair.length === 2 ? (
+                          <>
+                            <div>
+                              <BrowserMockup screenshot={pair[0]} />
                             </div>
-                          </div>
+                            <div>
+                              <BrowserMockup screenshot={pair[1]} />
+                            </div>
+                          </>
                         ) : (
-                          <Image
-                            src={screenshot.src}
-                            alt={screenshot.label}
-                            fill
-                            sizes="(max-width: 768px) 100vw, 50vw"
-                            className="object-cover"
-                          />
+                          <div className="lg:col-span-2">
+                            <BrowserMockup screenshot={pair[0]} />
+                          </div>
                         )}
                       </div>
-                    )
-                  })}
+                    ))
+                  })()}
                 </div>
               )}
             </section>
           </article>
 
-          {project.liveUrl ? (
-            <div className="flex justify-start">
-              <Button asChild className="rounded-full bg-primary hover:bg-primary/90">
-                <Link href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                  <ExternalLink className="mr-2 h-4 w-4" />
-                  Visit Live Product
-                </Link>
-              </Button>
+          <div className="flex items-center justify-between">
+            <div>
+              {project.liveUrl ? (
+                <Button asChild className="rounded-full bg-primary hover:bg-primary/90">
+                  <Link href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                    <ExternalLink className="mr-2 h-4 w-4" />
+                    Visit Live Product
+                  </Link>
+                </Button>
+              ) : null}
             </div>
-          ) : null}
+
+            <div>
+              {nextProject ? (
+                <Link
+                  href={`/projects/${nextProject.slug}`}
+                  className="inline-flex items-center gap-2 rounded-full bg-primary/10 text-primary px-4 py-2 font-medium hover:bg-primary/20 transition-colors"
+                >
+                  <span className="sr-only">Next project</span>
+                  <span className="text-sm">Next — {nextProject.title}</span>
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              ) : null}
+            </div>
+          </div>
         </div>
       </main>
     </div>

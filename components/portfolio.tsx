@@ -18,6 +18,7 @@ import {
   FileText
 } from "lucide-react"
 import Image from "next/image"
+import { IphoneMockup } from "./effects/iphone-mockup"
 import { projects } from "../lib/projects"
 import { cn } from "../lib/utils"
 import { GradientText } from "./effects/text-effects"
@@ -38,7 +39,7 @@ export function Portfolio() {
       case "self-service-app":
         return <Smartphone className="h-5 w-5 text-sky-500 dark:text-sky-400" />
       case "naasa-website":
-        return <Globe className="h-5 w-5 text-emerald-500 dark:text-emerald-400" />
+        return <Globe className="h-5 w-5 text-primary dark:text-primary" />
       case "connect-infinity":
         return <Infinity className="h-5 w-5 text-indigo-500 dark:text-indigo-400" />
       case "connect-infinity-product-page":
@@ -65,7 +66,7 @@ export function Portfolio() {
       case "self-service-app":
         return "bg-sky-500/10 border-sky-500/20"
       case "naasa-website":
-        return "bg-emerald-500/10 border-emerald-500/20"
+        return "bg-primary/10 border-primary/20"
       case "connect-infinity":
         return "bg-indigo-500/10 border-indigo-500/20"
       case "connect-infinity-product-page":
@@ -194,15 +195,69 @@ export function Portfolio() {
                           {/* Right Column Expanded Details */}
                           <div className="pl-6 pr-6 md:pr-8 pb-8 pt-2 flex flex-col gap-6">
                             {/* High-Fidelity Mock-up Container */}
-                            <div className="relative w-full aspect-[16/10] sm:aspect-[16/9] md:aspect-[21/9] rounded-2xl overflow-hidden border border-border/40 bg-muted/20 flex items-center justify-center group/img shadow-sm">
-                              <Image
-                                src={project.image}
-                                alt={project.title}
-                                fill
-                                sizes="(max-w-1024px) 100vw, 1200px"
-                                className="object-cover group-hover/img:scale-[1.01] transition-transform duration-500"
-                              />
-                            </div>
+                            {project.slug === "self-service-app" ? (
+                              (() => {
+                                const allSsa = project.screenshots.filter((s) => s.src && s.src.includes("ssa_"))
+                                const preferred = ["Login", "Dashboard", "Order"]
+                                const picked: typeof project.screenshots = []
+
+                                // pick preferred in order
+                                for (const p of preferred) {
+                                  const found = allSsa.find((s) => s.label.toLowerCase().includes(p.toLowerCase()))
+                                  if (found && !picked.includes(found)) picked.push(found)
+                                }
+
+                                // fill with remaining ssa images up to 3
+                                for (const s of allSsa) {
+                                  if (picked.length >= 3) break
+                                  if (!picked.includes(s)) picked.push(s)
+                                }
+
+                                const ssaScreens = picked.slice(0, 3)
+                                return (
+                                  <div className="relative w-full flex items-center justify-center py-6">
+                                    <div className="hidden sm:flex items-end justify-center">
+                                      {ssaScreens[0] ? (
+                                        <div className="relative z-10 w-[150px] lg:w-[180px] mr-[-40px] transform -rotate-6 scale-95 transition-all duration-500">
+                                          <IphoneMockup screenshot={ssaScreens[0]} device={"phone"} />
+                                        </div>
+                                      ) : null}
+
+                                      {ssaScreens[1] ? (
+                                        <div className="relative z-20 w-[200px] lg:w-[240px] mx-2 transform scale-100 transition-all duration-500">
+                                          <IphoneMockup screenshot={ssaScreens[1]} device={"phone"} />
+                                        </div>
+                                      ) : null}
+
+                                      {ssaScreens[2] ? (
+                                        <div className="relative z-0 w-[150px] lg:w-[180px] ml-[-40px] transform rotate-6 scale-95 transition-all duration-500">
+                                          <IphoneMockup screenshot={ssaScreens[2]} device={"phone"} />
+                                        </div>
+                                      ) : null}
+                                    </div>
+
+                                    {/* Mobile: horizontal scroller with three phones */}
+                                    <div className="sm:hidden flex gap-4 overflow-x-auto py-2 px-2">
+                                      {ssaScreens.map((s) => (
+                                        <div key={s.label} className="w-[160px] flex-shrink-0">
+                                          <IphoneMockup screenshot={s} device={"phone"} />
+                                        </div>
+                                      ))}
+                                    </div>
+                                  </div>
+                                )
+                              })()
+                            ) : (
+                              <div className="relative w-full aspect-[16/10] sm:aspect-[16/9] md:aspect-[21/9] rounded-2xl overflow-hidden border border-border/40 bg-muted/20 flex items-center justify-center group/img shadow-sm">
+                                <Image
+                                  src={project.image}
+                                  alt={project.title}
+                                  fill
+                                  sizes="(max-w-1024px) 100vw, 1200px"
+                                  className="object-cover group-hover/img:scale-[1.01] transition-transform duration-500"
+                                />
+                              </div>
+                            )}
 
                             {/* Description */}
                             <p className="text-base text-muted-foreground leading-relaxed">

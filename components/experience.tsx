@@ -48,7 +48,7 @@ const companies: Company[] = [
   {
     name: "Sunshine Secondary School",
     initials: "SS",
-    color: "bg-emerald-500/20 text-emerald-400 border-emerald-500/30",
+    color: "bg-primary/10 text-primary border-primary/30",
     isCurrent: false,
     roles: [
       {
@@ -131,8 +131,8 @@ export function Experience() {
                   </span>
 
                   {company.isCurrent && (
-                    <span className="flex items-center gap-1.5 text-xs font-semibold text-emerald-500 ml-1">
-                      <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse inline-block" />
+                    <span className="flex items-center gap-1.5 text-xs font-semibold text-primary ml-1">
+                      <span className="h-2 w-2 rounded-full bg-primary animate-pulse inline-block" />
                       Current
                     </span>
                   )}

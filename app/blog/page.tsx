@@ -113,7 +113,7 @@ const blogs = [
 const categoryColor: Record<string, string> = {
   Design: "text-primary border-primary/30 bg-primary/10",
   Development: "text-blue-500 border-blue-500/30 bg-blue-500/10",
-  Research: "text-emerald-500 border-emerald-500/30 bg-emerald-500/10",
+  Research: "text-primary border-primary/30 bg-primary/10",
   "Case Study": "text-orange-500 border-orange-500/30 bg-orange-500/10",
 }
 
