@@ -28,13 +28,13 @@ const companies: Company[] = [
     name: "Cognix Insights",
     initials: "CI",
     color: "bg-indigo-500/20 text-indigo-400 border-indigo-500/30",
-    isCurrent: true,
+    isCurrent: false,
     roles: [
       {
         title: "UX/UI Designer & Flutter Developer",
         type: "Full-time",
-        from: "01.2023",
-        to: "∞",
+        from: "July 2023",
+        to: "March 2026",
         bullets: [
           "Led development and design of multiple client-facing projects and internal tools at Cognix Insights.",
           "Built and shipped end-to-end mobile apps using Flutter and Dart; designed interfaces and prototypes in Figma.",
@@ -54,8 +54,8 @@ const companies: Company[] = [
       {
         title: "Computer Teacher",
         type: "Part-time",
-        from: "2019",
-        to: "2022",
+        from: "January 2021",
+        to: "April 2023",
         bullets: [
           "Taught programming and computer basics to secondary school students, and prepared lesson plans and assessments.",
           "Mentored students, organised extracurricular computer activities, and supported exam preparation.",
