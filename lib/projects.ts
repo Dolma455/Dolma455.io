@@ -33,12 +33,6 @@ const actualScreenshots = (prefix: string, screenshots: Array<{ label: string; s
     src: screenshot.src,
   }))
 
-const placeholderScreenshots = (prefix: string, count: number) =>
-  Array.from({ length: count }, (_, index) => ({
-    label: `${prefix} - Screenshot ${String(index + 1).padStart(2, "0")}`,
-    placeholder: true,
-  }))
-
 export const projects: Project[] = [
   {
     slug: "self-service-app",
@@ -218,7 +212,7 @@ export const projects: Project[] = [
     summary: "A brokerage website for presenting services, market presence, and contact pathways.",
     description:
       "A brokerage website that I contributed to the design of for presenting company information, services, and investor-facing support details.",
-    image: "/image/projects/placeholder-featured.svg",
+    image: "/image/projects/nsh_1.png",
     tags: ["Website", "Finance", "Brokerage"],
     featured: false,
     year: "2024",
@@ -252,7 +246,7 @@ export const projects: Project[] = [
     summary: "An internal CRM dashboard for managing customers, leads, and follow-ups.",
     description:
       "An internal CRM dashboard that I contributed to the design of for keeping customer records, lead status, and follow-up actions in one place.",
-    image: "/image/projects/placeholder-featured.svg",
+    image: "/image/projects/crm_1.png",
     tags: ["Dashboard", "CRM", "Operations"],
     featured: false,
     year: "2024",
@@ -283,7 +277,7 @@ export const projects: Project[] = [
     summary: "A corporate website for Naasa Securities and its services.",
     description:
       "A corporate website that I contributed to the design of for presenting Naasa Securities, its services, and key information for visitors and investors.",
-    image: "/image/projects/placeholder-featured.svg",
+    image: "/image/projects/naasawebsite_1.png",
     tags: ["Website", "Corporate", "Finance"],
     featured: false,
     year: "2024",
@@ -313,7 +307,7 @@ export const projects: Project[] = [
     summary: "An agriculture platform for connecting producers, buyers, and operations.",
     description:
       "An agriculture platform that I contributed to the design of to support product discovery, operational workflows, and marketplace connections.",
-    image: "/image/projects/placeholder-featured.svg",
+    image: "/image/projects/agrilink_1.png",
     tags: ["Platform", "Agriculture", "Marketplace"],
     featured: false,
     year: "2024",
@@ -361,7 +355,12 @@ export const projects: Project[] = [
     ],
     process: ["Information architecture", "Dashboard redesign", "Visual hierarchy tuning", "Micro-interactions", "QA handoff"],
     device: "browser",
-    screenshots: placeholderScreenshots("LoyalEdge", 6),
+    screenshots: actualScreenshots("LoyalEdge", [
+      { label: "Dashboard", src: "/image/projects/loyaledge_1.png" },
+      { label: "Campaigns", src: "/image/projects/loyaledge_2.png" },
+      { label: "Rewards", src: "/image/projects/loyaledge_3.png" },
+      { label: "Analytics", src: "/image/projects/loyaledge_4.png" },
+    ]),
   },
 ]
 

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <rect width="1600" height="900" fill="#f1f5f9"/>
+  <rect x="70" y="60" width="1460" height="780" rx="24" fill="#ffffff" stroke="#d9e2ec" stroke-width="2"/>
+  <text x="120" y="145" font-size="42" font-family="Arial, Helvetica, sans-serif" fill="#0f172a">Flutter Architecture</text>
+  <text x="120" y="188" font-size="20" font-family="Arial, Helvetica, sans-serif" fill="#475569">Set module boundaries, state flow, and scalable project structure.</text>
+  <rect x="120" y="250" width="1360" height="490" rx="18" fill="#f8fafc" stroke="#dbe4ee"/>
+  <rect x="180" y="320" width="260" height="130" rx="14" fill="#dbeafe"/>
+  <rect x="520" y="320" width="260" height="130" rx="14" fill="#c7d2fe"/>
+  <rect x="860" y="320" width="260" height="130" rx="14" fill="#bbf7d0"/>
+  <rect x="1200" y="320" width="220" height="130" rx="14" fill="#fde68a"/>
+  <rect x="320" y="540" width="260" height="130" rx="14" fill="#fecaca"/>
+  <rect x="660" y="540" width="260" height="130" rx="14" fill="#ddd6fe"/>
+  <rect x="1000" y="540" width="260" height="130" rx="14" fill="#bfdbfe"/>
+  <line x1="440" y1="385" x2="520" y2="385" stroke="#64748b" stroke-width="4"/>
+  <line x1="780" y1="385" x2="860" y2="385" stroke="#64748b" stroke-width="4"/>
+  <line x1="1120" y1="385" x2="1200" y2="385" stroke="#64748b" stroke-width="4"/>
+</svg>

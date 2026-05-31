@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <rect width="1600" height="900" fill="#f7fafc"/>
+  <rect x="70" y="60" width="1460" height="780" rx="24" fill="#ffffff" stroke="#dbe4ee" stroke-width="2"/>
+  <text x="120" y="145" font-size="42" font-family="Arial, Helvetica, sans-serif" fill="#0f172a">Product Requirements</text>
+  <text x="120" y="188" font-size="20" font-family="Arial, Helvetica, sans-serif" fill="#475569">Define user stories, acceptance criteria, and release goals.</text>
+  <rect x="120" y="240" width="930" height="520" rx="18" fill="#f8fafc" stroke="#dbe4ee"/>
+  <rect x="160" y="280" width="850" height="90" rx="12" fill="#e0e7ff"/>
+  <rect x="160" y="390" width="850" height="90" rx="12" fill="#dcfce7"/>
+  <rect x="160" y="500" width="850" height="90" rx="12" fill="#fee2e2"/>
+  <rect x="160" y="610" width="500" height="100" rx="12" fill="#dbeafe"/>
+  <rect x="1090" y="240" width="390" height="520" rx="18" fill="#0f172a"/>
+  <rect x="1125" y="280" width="320" height="220" rx="12" fill="#1e293b"/>
+  <rect x="1125" y="520" width="320" height="210" rx="12" fill="#1e293b"/>
+</svg>

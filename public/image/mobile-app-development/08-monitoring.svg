@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <rect width="1600" height="900" fill="#eef2f7"/>
+  <rect x="70" y="60" width="1460" height="780" rx="24" fill="#ffffff" stroke="#d9e2ec" stroke-width="2"/>
+  <text x="120" y="145" font-size="42" font-family="Arial, Helvetica, sans-serif" fill="#0f172a">Monitoring and Iteration</text>
+  <text x="120" y="188" font-size="20" font-family="Arial, Helvetica, sans-serif" fill="#475569">Track crashes, performance, and user feedback for continuous improvement.</text>
+  <rect x="120" y="250" width="900" height="520" rx="18" fill="#f8fafc" stroke="#d9e2ec"/>
+  <rect x="160" y="300" width="830" height="150" rx="12" fill="#0f172a"/>
+  <rect x="160" y="480" width="830" height="120" rx="12" fill="#dbeafe"/>
+  <rect x="160" y="620" width="520" height="110" rx="12" fill="#dcfce7"/>
+  <rect x="1060" y="250" width="420" height="520" rx="18" fill="#f8fafc" stroke="#d9e2ec"/>
+  <rect x="1095" y="300" width="350" height="130" rx="12" fill="#fee2e2"/>
+  <rect x="1095" y="460" width="350" height="130" rx="12" fill="#ddd6fe"/>
+  <rect x="1095" y="620" width="350" height="110" rx="12" fill="#bfdbfe"/>
+</svg>

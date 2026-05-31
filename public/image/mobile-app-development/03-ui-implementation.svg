@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <rect width="1600" height="900" fill="#f8fafc"/>
+  <rect x="70" y="60" width="1460" height="780" rx="24" fill="#ffffff" stroke="#d9e2ec" stroke-width="2"/>
+  <text x="120" y="145" font-size="42" font-family="Arial, Helvetica, sans-serif" fill="#0f172a">UI Implementation</text>
+  <text x="120" y="188" font-size="20" font-family="Arial, Helvetica, sans-serif" fill="#475569">Build screens with reusable widgets and responsive constraints.</text>
+  <rect x="120" y="250" width="430" height="520" rx="30" fill="#0f172a"/>
+  <rect x="150" y="290" width="370" height="450" rx="20" fill="#1e293b"/>
+  <rect x="610" y="250" width="430" height="520" rx="30" fill="#0f172a"/>
+  <rect x="640" y="290" width="370" height="450" rx="20" fill="#1e293b"/>
+  <rect x="1100" y="250" width="380" height="520" rx="18" fill="#f8fafc" stroke="#d9e2ec"/>
+  <rect x="1130" y="290" width="320" height="90" rx="10" fill="#dbeafe"/>
+  <rect x="1130" y="405" width="320" height="90" rx="10" fill="#dcfce7"/>
+  <rect x="1130" y="520" width="320" height="90" rx="10" fill="#fee2e2"/>
+  <rect x="1130" y="635" width="200" height="90" rx="10" fill="#c7d2fe"/>
+</svg>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <rect width="1600" height="900" fill="#f8fafc"/>
+  <rect x="70" y="60" width="1460" height="780" rx="24" fill="#ffffff" stroke="#d9e2ec" stroke-width="2"/>
+  <text x="120" y="145" font-size="42" font-family="Arial, Helvetica, sans-serif" fill="#0f172a">API Integration</text>
+  <text x="120" y="188" font-size="20" font-family="Arial, Helvetica, sans-serif" fill="#475569">Wire authentication, REST endpoints, and resilient error handling.</text>
+  <rect x="120" y="250" width="620" height="520" rx="18" fill="#0f172a"/>
+  <rect x="155" y="290" width="550" height="90" rx="10" fill="#1e293b"/>
+  <rect x="155" y="400" width="550" height="90" rx="10" fill="#1e293b"/>
+  <rect x="155" y="510" width="550" height="90" rx="10" fill="#1e293b"/>
+  <rect x="155" y="620" width="380" height="110" rx="10" fill="#1e293b"/>
+  <rect x="800" y="250" width="680" height="520" rx="18" fill="#f8fafc" stroke="#d9e2ec"/>
+  <rect x="840" y="300" width="600" height="120" rx="12" fill="#dbeafe"/>
+  <rect x="840" y="450" width="600" height="120" rx="12" fill="#dcfce7"/>
+  <rect x="840" y="600" width="340" height="120" rx="12" fill="#fee2e2"/>
+</svg>

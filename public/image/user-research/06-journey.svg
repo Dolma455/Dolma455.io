@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <rect width="1600" height="900" fill="#f1f5f9"/>
+  <rect x="70" y="60" width="1460" height="780" rx="24" fill="#ffffff" stroke="#d7dee8" stroke-width="2"/>
+  <text x="120" y="145" font-size="42" font-family="Arial, Helvetica, sans-serif" fill="#0f172a">Journey Map</text>
+  <text x="120" y="188" font-size="20" font-family="Arial, Helvetica, sans-serif" fill="#475569">Plot user actions, pain points, and opportunities across stages.</text>
+
+  <rect x="120" y="250" width="1360" height="490" rx="18" fill="#f8fafc" stroke="#dbe3ef"/>
+  <line x1="190" y1="470" x2="1410" y2="470" stroke="#94a3b8" stroke-width="4"/>
+  <circle cx="240" cy="470" r="26" fill="#3b82f6"/>
+  <circle cx="430" cy="470" r="26" fill="#10b981"/>
+  <circle cx="620" cy="470" r="26" fill="#f59e0b"/>
+  <circle cx="810" cy="470" r="26" fill="#ef4444"/>
+  <circle cx="1000" cy="470" r="26" fill="#8b5cf6"/>
+  <circle cx="1190" cy="470" r="26" fill="#06b6d4"/>
+  <circle cx="1380" cy="470" r="26" fill="#22c55e"/>
+
+  <polyline points="240,610 430,520 620,540 810,430 1000,450 1190,380 1380,410" fill="none" stroke="#2563eb" stroke-width="5"/>
+</svg>
