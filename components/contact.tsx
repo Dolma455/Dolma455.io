@@ -27,23 +27,30 @@ export function Contact() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+
     setIsSubmitting(true)
 
     try {
-      const response = await fetch("/api/send-email", {
+      const submitData = new FormData()
+      submitData.append("access_key", "bb0411df-90d2-4021-967d-339633899d5c")
+      submitData.append("name", formData.name)
+      submitData.append("email", formData.email)
+      submitData.append("subject", formData.subject)
+      submitData.append("message", formData.message)
+
+      const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
+        body: submitData,
       })
 
-      if (response.ok) {
+      const result = await response.json()
+
+      if (response.ok && result.success) {
         alert("Message sent successfully!")
         setFormData({ name: "", email: "", subject: "", message: "" })
         setIsModalOpen(false)
       } else {
-        alert("Failed to send message.")
+        alert(result.message || "Failed to send message.")
       }
     } catch (error) {
       alert("Error sending message.")
