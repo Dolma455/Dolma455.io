@@ -10,6 +10,7 @@ import { IphoneMockup } from "@/components/effects/iphone-mockup"
 import BrowserMockup from "@/components/effects/browser-mockup"
 import ScreenshotGallery from "@/components/projects/screenshot-gallery"
 import { notFound } from "next/navigation"
+import { Header } from "@/components/header"
 
 type ProjectPageProps = {
   params: Promise<{ slug: string }>
@@ -49,8 +50,9 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
   return (
     <div className="relative min-h-screen overflow-hidden text-foreground">
       <GridBackground className="opacity-45" />
+      <Header />
 
-      <main className="relative container mx-auto px-4 pb-20 pt-24 sm:px-6 lg:px-8 lg:pt-32">
+      <main className="relative container mx-auto px-4 pb-28 pt-24 sm:px-6 lg:px-8 lg:pt-32">
         <div className="mb-8">
           <Button asChild variant="ghost" className="rounded-full">
             <Link href="/#portfolio">
