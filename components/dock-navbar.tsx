@@ -58,6 +58,18 @@ export function DockNavbar() {
       onClick: () => router.push("/blog"),
     },
     {
+      customElement: (
+        <a
+          href="/resume.pdf"
+          download
+          className="relative px-2 flex items-center justify-center cursor-pointer pointer-events-auto border-none bg-transparent outline-none focus:outline-none font-semibold tracking-wide text-sm text-primary hover:opacity-80 transition-opacity"
+        >
+          Get CV
+        </a>
+      ),
+      label: "Get CV",
+    },
+    {
       isSeparator: true,
       label: "separator-theme",
     },
