@@ -3,6 +3,7 @@
 import type React from "react"
 import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
+import { CheckCircle2, Heart } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -11,6 +12,7 @@ import { Modal } from "@/components/ui/modal"
 
 export function Contact() {
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const [isSuccessOpen, setIsSuccessOpen] = useState(false)
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -46,7 +48,7 @@ export function Contact() {
       const result = await response.json()
 
       if (response.ok && result.success) {
-        alert("Message sent successfully!")
+        setIsSuccessOpen(true)
         setFormData({ name: "", email: "", subject: "", message: "" })
         setIsModalOpen(false)
       } else {
@@ -140,6 +142,28 @@ export function Contact() {
             </Button>
           </motion.div>
         </form>
+      </Modal>
+
+      <Modal isOpen={isSuccessOpen} onClose={() => setIsSuccessOpen(false)}>
+        <div className="text-center space-y-5 py-2">
+          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary">
+            <CheckCircle2 className="h-8 w-8" />
+          </div>
+
+          <div className="space-y-2">
+            <div className="flex items-center justify-center gap-2 text-sm font-semibold uppercase tracking-[0.2em] text-primary">
+              <Heart className="h-4 w-4" />
+              Success
+              <Heart className="h-4 w-4" />
+            </div>
+            <p className="text-xl font-bold text-foreground">Message Sent!</p>
+            <p className="text-sm text-muted-foreground">I’ll get back to you as soon as possible.</p>
+          </div>
+
+          <Button onClick={() => setIsSuccessOpen(false)} className="w-full rounded-full bg-primary hover:bg-primary/90">
+            OK
+          </Button>
+        </div>
       </Modal>
     </>
   )
