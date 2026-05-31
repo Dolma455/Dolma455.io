@@ -1,10 +1,12 @@
 "use client"
 
 import React, { type MouseEvent, useRef, useState } from "react"
+import { useRouter } from "next/navigation"
 import { motion, useSpring } from "framer-motion"
 import { Search, Palette, Code2 } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { GradientText } from "@/components/effects/text-effects"
+import { Modal } from "@/components/ui/modal"
 
 interface ServiceItem {
   title: string
@@ -17,6 +19,16 @@ interface ServiceItem {
 }
 
 export function Services() {
+  const uiDesignSteps = [
+    { title: "Low-fidelity", desc: "Initial sketches and wireframes to explore layout and hierarchy.", src: "/image/ui/lowfidelity.png" },
+    { title: "Design System - ds_1", desc: "Foundations: colors, typography, spacing, tokens.", src: "/image/ui/ds_1.png" },
+    { title: "Design System - ds_2", desc: "Components: buttons, inputs, cards, and variants.", src: "/image/ui/ds_2.png" },
+    { title: "Design System - ds_3", desc: "Patterns: navigation, headers, and responsive rules.", src: "/image/ui/ds_3.png" },
+    { title: "Design System - ds_4", desc: "Accessibility, states, and motion guidelines.", src: "/image/ui/ds_4.png" },
+    { title: "Prototyping", desc: "Interactive prototypes to validate flows and micro-interactions.", src: "/image/ui/prototyping.png" },
+    { title: "High-fidelity", desc: "Polished screens ready for handoff to development.", src: "/image/ui/high_fidelity.png" },
+  ]
+  const router = useRouter()
   const [img, setImg] = useState<{ src: string | null; alt: string; opacity: number }>({
     src: null,
     alt: "",
@@ -83,6 +95,22 @@ export function Services() {
     setImg({ src: item.img, alt: item.title, opacity })
   }
 
+  const handleServiceClick = (title: string) => {
+    if (title === "UI Design") {
+      router.push("/services/ui-design")
+      return
+    }
+
+    if (title === "UX Research") {
+      router.push("/services/user-research")
+      return
+    }
+
+    if (title === "App Development") {
+      router.push("/services/mobile-app-development")
+    }
+  }
+
   return (
     <section id="services" className="relative overflow-hidden py-28">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
@@ -118,6 +146,7 @@ export function Services() {
                 onMouseEnter={() => handleImageInteraction(item, 1)}
                 onMouseMove={() => handleImageInteraction(item, 1)}
                 onMouseLeave={() => handleImageInteraction(item, 0)}
+                onClick={() => handleServiceClick(item.title)}
                 className="group w-full py-10 cursor-pointer flex justify-between items-center border-b-2 last:border-none border-neutral-300/60 dark:border-neutral-800/60"
               >
                 <div className="flex items-center">
@@ -168,6 +197,9 @@ export function Services() {
           )}
         </div>
 
+        {/* UI Design Modal */}
+        {/* clicking UI Design navigates to /services/ui-design for full scrollable process */}
+
         {/* Mobile/Tablet View (Static Beautiful Cards) */}
         <div className="lg:hidden grid gap-8 md:grid-cols-2 max-w-4xl mx-auto">
           {allServices.map((item, idx) => {
@@ -179,6 +211,7 @@ export function Services() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1, duration: 0.4 }}
+                onClick={() => handleServiceClick(item.title)}
                 className="relative overflow-hidden rounded-3xl border-y-2 border-x border-neutral-300/60 dark:border-neutral-800/60 bg-neutral-900/10 dark:bg-neutral-950/20 backdrop-blur-md p-6 flex flex-col justify-between h-[420px]"
               >
                 <div>
