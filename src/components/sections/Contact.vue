@@ -27,7 +27,7 @@
           v-html="makeItHappen"
         ></h3>
         <div
-          class="mt-[5%] flex scale-150 items-center lg:scale-[1.5] xl:scale-[3] 2xl:scale-[3.5]"
+          class="mt-[5%] flex items-center scale-100 sm:scale-125 lg:scale-150"
         >
           <!-- <Button
             :data-cal-namespace="dataCalNamespace"
@@ -35,7 +35,7 @@
             :data-cal-config="dataCalConfig"
             label="Get in touch"
           /> -->
-          <Button label="Get in touch" url="https://wa.me/967775367671" />
+          <Button label="Get in touch" url="https://wa.me/447345133369" />
         </div>
       </div>
       <div
@@ -59,7 +59,7 @@
               Working Globally
             </p>
             <p class="flex size-full items-center justify-start pr-2 pl-1">
-              Available Sep '24
+              Available for onsite or remote
             </p>
           </div>
         </div>

@@ -14,7 +14,7 @@
         :key="`marquee-item-${_}`"
         class="sm:heading-1 flex w-full items-center text-3xl font-bold text-nowrap whitespace-nowrap max-sm:mx-6"
       >
-        Full Stack Developer
+        Product Designer &amp; Developer
         <div class="w-fit scale-50 sm:scale-75">
           <svg
             class="ms-10 me-10"
@@ -41,7 +41,7 @@
         :key="`marquee-item-${_}`"
         class="sm:heading-1 flex w-full items-center text-3xl font-bold text-nowrap whitespace-nowrap max-sm:mx-6"
       >
-        Full Stack Developer
+        Product Designer &amp; Developer
         <div class="mx-2 inline-block scale-50 sm:scale-75">
           <svg
             class="ms-10 me-10"
@@ -86,10 +86,8 @@
     const itemWidth = items[0].clientWidth;
     const totalWidth = itemWidth * items.length * cloneCount;
 
-    // Set initial position based on direction
     const startPosition = direction === 1 ? 0 : totalWidth;
 
-    // Set the starting position
     gsap.set(container, {
       x: -startPosition,
     });
@@ -108,7 +106,6 @@
     const tl = gsap.timeline({
       scrollTrigger: {
         markers: !true,
-
         trigger: '#marquee-section',
         start: 'top center',
         end: '110% center',

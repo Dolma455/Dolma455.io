@@ -3,6 +3,7 @@
     id="about-me-section"
     class="common-padding text-flax-smoke-200 relative z-10 overflow-y-clip rounded-b-3xl bg-[#1b0731] shadow-2xl will-change-auto sm:mt-0"
   >
+    <!-- Header row -->
     <div class="md:column-gap grid grid-cols-12">
       <div class="hide-on-mobile overflow-hidden md:col-span-4">
         <svg
@@ -30,17 +31,21 @@
       ></h3>
     </div>
 
-    <div class="padding-y md:column-gap mt-6 grid grid-cols-12">
+    <!-- Content: image + text (stacked on mobile, side by side on md+) -->
+    <div class="padding-y md:column-gap mt-6 grid grid-cols-1 gap-8 md:grid-cols-12">
+      <!-- Profile image: full width on mobile, 4 cols on md+ -->
       <div
-        class="pointer-events-none col-span-full content-end rounded-lg select-none md:col-span-4"
+        class="pointer-events-none w-full max-w-xs mx-auto rounded-lg select-none md:col-span-4 md:max-w-none md:mx-0"
       >
         <img
-          :src="profile2"
-          class="aspect-[1/1.5] rounded-lg object-cover object-top"
+          :src="dolmaLama"
+          class="w-full aspect-[1/1.4] rounded-lg object-cover object-top"
           alt="Headshot of Dolma Lama facing a camera"
         />
       </div>
-      <div class="col-span-11 mt-10 md:col-span-8 md:col-start-6">
+
+      <!-- Text content -->
+      <div class="w-full md:col-span-8 md:col-start-6">
         <p
           class="heading-4 relative w-full max-w-[40ch] leading-snug font-medium text-balance"
         >
@@ -50,18 +55,17 @@
         </p>
 
         <div
-          class="text-flax-smoke-300 mt-[5%] flex justify-start gap-10 sm:gap-20"
+          class="text-flax-smoke-300 mt-8 flex flex-col gap-4 sm:flex-row sm:gap-16"
         >
-          <p class="heading-6 text-flax-smoke-300/85 text-center text-nowrap">
+          <p class="heading-6 text-flax-smoke-300/85 text-nowrap font-bold">
             ( ABOUT ME )
           </p>
           <p class="heading-6 font-fancy w-full text-balance sm:max-w-[40ch]">
-            Creating great web experiences is my primary focus. I ensure each
+            Creating great digital experiences is my primary focus. I ensure each
             project leaves users with a feel-good sensation through meticulous
             attention to detail and user-centric design principles. <br /><br />
-            When I'm not immersed in web development and design, you can find me
-            sharing insights about my freelance journey on <i>&Xopf;</i>,
-            loudly, playing music (Funk), or just relaxing.
+            When I'm not deep in design or development, you can find me
+            sharing ideas on <i>&Xopf;</i>, exploring music (Funk), or just unwinding.
           </p>
         </div>
       </div>
@@ -75,20 +79,15 @@
     xToZero,
     animateAboutMeSectionLeave,
   } from '@/animations';
-  import { profile2 } from '@/assets/images';
+  import { dolmaLama } from '@/assets/images';
   import { textSplitterIntoChar } from '@/functions';
   import { onBeforeMount, onMounted, ref } from 'vue';
 
-  const aboutMe = ref('ٍSelected Projects /');
-
-  // const initialPath = ref(`M0 0H${width.value}  V${height.value} H0 Z`);
-  // const targetPath = ref(
-  //   `M0 0H${width.value}L${width.value * 0.9} ${height.value}H${width.value * 0.1}L0 0Z`,
-  // );
+  const aboutMe = ref('Designer, Developer/');
 
   onBeforeMount(() => {
     aboutMe.value = textSplitterIntoChar(
-      'Programmer, Developer, Web-animator/',
+      'Designer, Developer/',
       true,
       true,
     );

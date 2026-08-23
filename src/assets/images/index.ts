@@ -1,5 +1,6 @@
 import profile from './1.jpg';
 import profile2 from './profile2.png';
+import dolmaLama from './dolmalamaa.png';
 import esmail from './esmail.webp';
 import mohammad from './mohammad.webp';
 import aadiDesign from './Aadi-design.png';
@@ -12,6 +13,7 @@ import workBg5 from './5.webp';
 export {
   profile,
   profile2,
+  dolmaLama,
   esmail,
   mohammad,
   aadiDesign,

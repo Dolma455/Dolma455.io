@@ -33,8 +33,8 @@
       </div>
     </div>
 
-    <!-- Filter Category Bar (Modern Interactive Tabs) -->
-    <div class="mt-12 flex flex-wrap items-center gap-2.5 border-b border-flax-smoke-500/20 pb-6">
+    <!-- Filter Category Bar (Mobile Scrollable Tabs) -->
+    <div class="mt-12 flex items-center gap-2 overflow-x-auto pb-4 border-b border-flax-smoke-500/20 scrollbar-hide -mx-4 px-4 sm:mx-0 sm:px-0 sm:flex-wrap sm:pb-6">
       <button
         v-for="tab in filterTabs"
         :key="tab.id"
@@ -43,7 +43,7 @@
           activeTab === tab.id
             ? 'bg-flax-smoke-500 text-flax-smoke-50 border-flax-smoke-400 shadow-[0_0_20px_rgba(155,107,215,0.4)]'
             : 'bg-flax-smoke-950/60 text-flax-smoke-300/80 border-flax-smoke-500/20 hover:border-flax-smoke-400/50 hover:text-flax-smoke-100 hover:bg-flax-smoke-900/60',
-          'group relative flex items-center gap-2 rounded-full border px-4 py-2 text-xs font-semibold uppercase tracking-wider transition-all duration-300 cursor-pointer select-none'
+          'group relative flex shrink-0 items-center gap-2 rounded-full border px-4 py-2 text-xs font-semibold uppercase tracking-wider transition-all duration-300 cursor-pointer select-none'
         ]"
       >
         <span class="text-sm">{{ tab.icon }}</span>
@@ -52,7 +52,7 @@
           v-if="tab.count"
           :class="[
             activeTab === tab.id ? 'bg-flax-smoke-950/60 text-flax-smoke-100' : 'bg-flax-smoke-900 text-flax-smoke-400',
-            'ml-1 rounded-full px-2 py-0.5 text-[10px] font-mono font-bold'
+            'ml-1 rounded-full px-2 py-0.5 text-[10px] font-mono font-bold hidden sm:inline'
           ]"
         >
           {{ tab.count }}

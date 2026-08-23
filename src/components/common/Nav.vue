@@ -97,12 +97,9 @@
       </MagneticEffect>
 
       <div class="flex justify-start">
-        <p
-          class="heading-6 font-fancy text-flax-smoke-400 hidden font-bold uppercase select-none md:block"
-        >
-          available for freelancers <br />
-          work and collaboration
-        </p>
+          available for onsite <br />
+          or remote
+       
       </div>
       <div class="flex">
         <ul
