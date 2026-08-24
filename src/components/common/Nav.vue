@@ -1,7 +1,7 @@
 <template>
   <BurgerMenuBtn
     @click="toggleBtnClickAnimation"
-    class="z-9999 scale-0 drop-shadow-lg"
+    class="z-9999 scale-100 md:scale-0 drop-shadow-lg"
     id="burger"
   />
 
@@ -96,11 +96,11 @@
         </div>
       </MagneticEffect>
 
-      <div class="flex justify-start font-bold">
+      <div class="hidden md:flex justify-start font-bold">
         Available for onsite <br />
         or remote
       </div>
-      <div class="flex">
+      <div class="hidden md:flex">
         <ul
           class="w-full flex-1 gap-1 overflow-y-hidden text-lg font-medium md:flex md:gap-2 md:text-xl lg:gap-4 lg:text-2xl xl:text-3xl"
         >

@@ -61,16 +61,29 @@ const animateSplitText = (
   });
 };
 const navbarScale = (selector: string, trigger: string) => {
-  gsap.to(selector, {
-    scrollTrigger: {
-      trigger: trigger,
-      start: 'bottom center',
-      //toggleActions: start, leave, enterBack, leaveBack
-      toggleActions: 'play none none reverse',
-    },
-    duration: 0.6,
-    scale: 1,
-    ease: 'power1',
+  const mm = gsap.matchMedia();
+
+  // Desktop (>= 768px): hidden at first, appears on scroll past hero
+  mm.add('(min-width: 768px)', () => {
+    gsap.fromTo(
+      selector,
+      { scale: 0 },
+      {
+        scrollTrigger: {
+          trigger: trigger,
+          start: 'bottom center',
+          toggleActions: 'play none none reverse',
+        },
+        duration: 0.6,
+        scale: 1,
+        ease: 'power1',
+      },
+    );
+  });
+
+  // Mobile (< 768px): always visible from the start
+  mm.add('(max-width: 767px)', () => {
+    gsap.set(selector, { scale: 1 });
   });
 };
 
@@ -364,15 +377,14 @@ const animateHeroNav = () => {
 
   animateSplitText('#whoAmI .letters', '#whoAmI .letters', 1.5, 0.005, 0.4);
 
-  // Hero scroll animation
+  // Hero scroll animation (gentle scale without fading out contrast)
   gsap.to('#hero', {
     scrollTrigger: {
       trigger: '#hero',
       start: 'top top',
       scrub: 1,
     },
-    opacity: 0.5,
-    scale: 0.9,
+    scale: 0.96,
     translateZ: 0,
   });
 };

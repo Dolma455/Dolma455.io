@@ -2,7 +2,7 @@
   <section class="padding-x mb-[-100svh] py-0">
     <div
       id="hero"
-      class="sticky top-0 flex min-h-svh w-full items-end pb-[clamp(1.5rem,2.1786rem_+_0.3571vi,2.5rem)]"
+      class="sticky top-0 flex min-h-svh w-full items-end pb-[clamp(1.5rem,2.1786rem_+_0.3571vi,2.5rem)] pt-20 sm:pt-24 md:pt-28"
     >
       <div class="relative flex w-full flex-col items-center">
         <div class="w-full items-end overflow-clip">
@@ -12,10 +12,10 @@
           </div>
         </div>
 
-        <div class="lg:column-gap spacing-t grid w-full grid-cols-12 gap-y-6">
+        <div class="lg:column-gap spacing-t grid w-full grid-cols-12 gap-y-6 sm:gap-y-6">
           <!-- Left: intro text + CTA -->
           <div
-            class="col-span-full flex flex-col items-start gap-8 sm:col-span-4 sm:gap-14"
+            class="col-span-full flex flex-col items-start gap-6 sm:col-span-4 sm:gap-14"
           >
             <div class="overflow-hidden">
               <svg
@@ -44,7 +44,7 @@
             <p
               v-html="whoAmI"
               id="whoAmI"
-              class="who-am-i heading-5 w-full max-w-[28ch] overflow-clip leading-snug font-medium text-balance sm:max-w-[37ch] lg:text-start"
+              class="who-am-i heading-5 w-full max-w-[28ch] overflow-clip leading-snug font-medium text-flax-smoke-900 text-balance sm:max-w-[37ch] lg:text-start"
             ></p>
 
             <div class="relative origin-left overflow-hidden">
@@ -54,17 +54,17 @@
             </div>
           </div>
 
-          <!-- Center: profile image (hidden on small mobile, visible from sm+) -->
+          <!-- Center: profile image -->
           <div
             id="profile-container"
-            class="relative col-span-full mt-4 h-[28vh] max-w-lg select-none sm:col-span-4 sm:mt-0 sm:h-full md:flex md:h-[50vh]"
+            class="relative col-span-full mt-4 flex h-[280px] sm:h-[360px] md:h-[50vh] w-full max-w-lg items-center justify-center select-none sm:col-span-4 sm:mt-0"
           >
             <div class="overlay bg-flax-smoke-50 absolute inset-0 z-2"></div>
             <img
               id="profile-img"
               :src="profile"
               alt="Dolma Lama profile"
-              class="size-full scale-90 rounded-lg object-cover object-top"
+              class="size-full scale-90 rounded-2xl object-contain object-center shadow-xl"
             />
           </div>
 
@@ -74,10 +74,10 @@
           >
             <div
               id="available-for-work"
-              class="sm:absolute sm:right-0 sm:bottom-0 flex sm:translate-y-full flex-col sm:items-end"
+              class="sm:absolute sm:right-0 sm:bottom-0 flex sm:translate-y-full flex-col items-start sm:items-end"
             >
               <p
-                class="3xl:text-base block leading-snug font-bold -tracking-tight text-end"
+                class="3xl:text-base block leading-snug font-bold -tracking-tight text-flax-smoke-900 text-start sm:text-end"
               >
                 Available onsite<br />
                 West Yorkshire area or remote
