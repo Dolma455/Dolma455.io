@@ -73,7 +73,7 @@
 
   <header
     :class="$attrs.class"
-    class="padding-x absolute inset-0 z-20 h-fit -translate-y-full pt-6 will-change-auto"
+    class="padding-x absolute inset-0 z-20 h-fit pt-6 will-change-auto"
   >
     <nav class="flex justify-between">
       <MagneticEffect

@@ -329,26 +329,39 @@ const animateLoadingText = (id: string) => {
 
 // ! Hero
 const animateHeroNav = () => {
-  gsap.to('header', {
-    y: 0,
-    duration: 1.5,
-    ease: 'power4.inOut',
-  });
+  gsap.fromTo(
+    'header',
+    { yPercent: -100 },
+    {
+      yPercent: 0,
+      duration: 1.5,
+      ease: 'power4.inOut',
+    },
+  );
 
-  gsap.to('#svg-my-en-name .hero-char, #svg-my-en-name g path', {
-    y: 0,
-    delay: 0.2,
-    duration: 1.5,
-    ease: 'power4.inOut',
-    stagger: 0.02,
-  });
+  gsap.fromTo(
+    '#svg-my-en-name .hero-char',
+    { yPercent: 100, opacity: 0 },
+    {
+      yPercent: 0,
+      opacity: 1,
+      delay: 0.1,
+      duration: 1.2,
+      ease: 'power4.out',
+      stagger: 0.025,
+    },
+  );
 
-  gsap.to('#star', {
-    x: 1,
-    delay: 0.2,
-    duration: 1.5,
-    ease: 'power4.inOut',
-  });
+  gsap.fromTo(
+    '#star',
+    { xPercent: 100 },
+    {
+      xPercent: 0,
+      delay: 0.2,
+      duration: 1.5,
+      ease: 'power4.inOut',
+    },
+  );
 
   gsap.to('.overlay', {
     y: '100%',
@@ -367,13 +380,38 @@ const animateHeroNav = () => {
     ease: 'power4.inOut',
   });
 
-  gsap.to(['#down-arrow', '#contact-btn', '#available-for-work'], {
-    x: 0,
-    y: 0,
-    delay: 0.4,
-    duration: 1.5,
-    ease: 'power4.inOut',
-  });
+  gsap.fromTo(
+    '#contact-btn',
+    { yPercent: -100 },
+    {
+      yPercent: 0,
+      delay: 0.4,
+      duration: 1.5,
+      ease: 'power4.inOut',
+    },
+  );
+
+  gsap.fromTo(
+    '#available-for-work',
+    { yPercent: 100 },
+    {
+      yPercent: 0,
+      delay: 0.4,
+      duration: 1.5,
+      ease: 'power4.inOut',
+    },
+  );
+
+  gsap.fromTo(
+    '#down-arrow',
+    { xPercent: -100 },
+    {
+      xPercent: 0,
+      delay: 0.4,
+      duration: 1.5,
+      ease: 'power4.inOut',
+    },
+  );
 
   animateSplitText('#whoAmI .letters', '#whoAmI .letters', 1.5, 0.005, 0.4);
 

@@ -8,7 +8,7 @@
         <div class="w-full items-end overflow-clip">
           <div class="flex w-full items-center justify-between gap-4 sm:gap-6">
             <MyName />
-            <Star id="star" class="hide-on-mobile translate-x-full" />
+            <Star id="star" class="hide-on-mobile" />
           </div>
         </div>
 
@@ -26,7 +26,7 @@
                 viewBox="6 6 12 12"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                class="hide-on-mobile m-0 size-4 -translate-x-full p-0 md:size-6"
+                class="hide-on-mobile m-0 size-4 p-0 md:size-6"
                 color="#9b6bd7"
                 style="color: #9b6bd7"
                 height="1em"
@@ -48,7 +48,7 @@
             ></p>
 
             <div class="relative origin-left overflow-hidden">
-              <div id="contact-btn" class="flex -translate-y-full">
+              <div id="contact-btn" class="flex">
                 <Button label="Get in touch" url="https://wa.me/447345133369" />
               </div>
             </div>
@@ -66,6 +66,23 @@
               alt="Dolma Lama profile"
               class="size-full scale-90 rounded-2xl object-contain object-center shadow-xl"
             />
+
+            <!-- Hand-drawn arrow + 'Hy I am Dolma lama' on the right -->
+            <div
+              class="pointer-events-none absolute -top-12 right-2 sm:top-10 sm:-right-36 md:top-14 md:-right-44 lg:-right-52 z-10 flex flex-row items-center gap-1.5 sm:gap-3 select-none"
+            >
+              <img
+                src="/About.svg"
+                alt="Arrow"
+                class="w-12 sm:w-16 md:w-20 lg:w-24 h-auto -scale-x-100 -rotate-12 shrink-0 drop-shadow-sm"
+              />
+              <p
+                class="font-fancy text-sm sm:text-lg md:text-xl lg:text-2xl font-bold leading-tight text-flax-smoke-900 whitespace-nowrap text-left"
+              >
+                Hy I am<br />
+                Dolma lama
+              </p>
+            </div>
           </div>
 
           <!-- Right: availability text -->
@@ -74,7 +91,7 @@
           >
             <div
               id="available-for-work"
-              class="sm:absolute sm:right-0 sm:bottom-0 flex sm:translate-y-full flex-col items-start sm:items-end"
+              class="sm:absolute sm:right-0 sm:bottom-0 flex flex-col items-start sm:items-end"
             >
               <p
                 class="3xl:text-base block leading-snug font-bold -tracking-tight text-flax-smoke-900 text-start sm:text-end"
