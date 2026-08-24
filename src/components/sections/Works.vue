@@ -120,12 +120,17 @@
             <!-- Standard Desktop Application Showcase Container -->
             <div
               v-else
-              class="relative aspect-[16/10] w-full overflow-hidden rounded-2xl border border-flax-smoke-500/30 bg-[#120422] shadow-2xl transition-all duration-500 hover:border-flax-smoke-400 hover:shadow-[0_15px_40px_rgba(155,107,215,0.3)]"
+              class="relative aspect-[16/10] w-full overflow-hidden rounded-2xl border border-flax-smoke-500/30 bg-[#120422] p-2 sm:p-4 shadow-2xl transition-all duration-500 hover:border-flax-smoke-400 hover:shadow-[0_15px_40px_rgba(155,107,215,0.3)] flex items-center justify-center"
             >
+              <img
+                alt="ambient-glow"
+                :src="work.imageBg"
+                class="absolute inset-0 size-full object-cover opacity-20 blur-2xl scale-110"
+              />
               <img
                 alt="work-preview"
                 loading="lazy"
-                class="size-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
+                class="relative z-10 size-full object-contain rounded-lg transition-transform duration-700 ease-out group-hover:scale-105"
                 :src="work.imageBg"
               />
 
@@ -353,15 +358,15 @@
               <div
                 v-for="(screen, sIdx) in currentProject.gallery"
                 :key="sIdx"
-                class="group relative overflow-hidden rounded-2xl border border-flax-smoke-500/30 bg-black shadow-2xl transition-all duration-500 hover:border-flax-smoke-400 hover:shadow-[0_15px_35px_rgba(155,107,215,0.3)]"
+                class="group relative flex min-h-[260px] items-center justify-center overflow-hidden rounded-2xl border border-flax-smoke-500/30 bg-[#0d0218] p-2 sm:p-3 shadow-2xl transition-all duration-500 hover:border-flax-smoke-400 hover:shadow-[0_15px_35px_rgba(155,107,215,0.3)]"
               >
                 <img
                   :src="screen"
                   :alt="currentProject.name + ' mockup ' + (sIdx + 1)"
-                  class="size-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                  class="size-full object-contain rounded-lg transition-transform duration-700 group-hover:scale-105"
                   loading="lazy"
                 />
-                <div class="absolute bottom-3 right-3 rounded-full bg-black/80 px-3 py-1 text-[10px] font-mono text-flax-smoke-300 border border-flax-smoke-500/20 backdrop-blur-md">
+                <div class="absolute bottom-3 right-3 rounded-full bg-black/80 px-3 py-1 text-[10px] font-mono text-flax-smoke-300 border border-flax-smoke-500/20 backdrop-blur-md z-10">
                   Screen 0{{ sIdx + 1 }}
                 </div>
               </div>
@@ -492,7 +497,7 @@
         '/projects/aadi-how-works.png',
         '/projects/aadi-footer.png',
       ],
-      url: 'https://aadii-design.vercel.app/',
+      url: 'https://aadii.design/',
       year: '2025',
       isMobileApp: false,
       hasLivePreview: true,

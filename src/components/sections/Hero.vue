@@ -77,7 +77,7 @@
               class="sm:absolute sm:right-0 sm:bottom-0 flex sm:translate-y-full flex-col sm:items-end"
             >
               <p
-                class="3xl:text-base block leading-snug font-medium -tracking-tight uppercase text-end"
+                class="3xl:text-base block leading-snug font-bold -tracking-tight text-end"
               >
                 Available onsite<br />
                 West Yorkshire area or remote

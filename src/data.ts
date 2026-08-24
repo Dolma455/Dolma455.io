@@ -41,8 +41,8 @@ const socialLinks = [
     url: 'https://x.com/dolmadev',
   },
   {
-    label: 'Telegram',
-    url: 'https://t.me/e_1_e',
+    label: 'WhatsApp',
+    url: 'https://wa.me/447345133369',
   },
   {
     label: 'GitHub',

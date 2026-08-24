@@ -2,15 +2,15 @@
   <div :class="$attrs.class">
     <!-- Card header: number + title -->
     <div
-      class="heading-3 max-sm:heading-4 flex flex-wrap items-center justify-between gap-3 py-5 text-left font-semibold"
+      class="heading-3 max-sm:heading-4 relative flex flex-col items-start gap-2 py-5 text-left font-semibold md:grid md:grid-cols-12 md:items-center md:gap-0"
     >
-      <span class="text-nowrap text-flax-smoke-400/70 font-mono text-base">
+      <span class="text-nowrap text-flax-smoke-400/70 font-mono text-base md:col-span-4">
         ( {{ `0${number}` }} )
       </span>
-      <h3 class="font-fancy font-bold">{{ title }}</h3>
+      <h3 class="font-fancy font-bold md:col-span-7 md:col-start-5">{{ title }}</h3>
       <div
         v-html="shape"
-        class="heading-size-3 hidden animate-[spin_10s_linear_infinite] fill-flax-smoke-400/50 lg:block"
+        class="heading-size-3 absolute right-0 top-1/2 -translate-y-1/2 hidden animate-[spin_10s_linear_infinite] fill-flax-smoke-400/50 lg:block"
       />
     </div>
 

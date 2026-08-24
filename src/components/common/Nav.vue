@@ -54,8 +54,8 @@
           <Link
             class="font-medium tracking-wider"
             tag="p"
-            label="dolmalama5671@gmail.com"
-            url="mailto:dolmalama5671@gmail.com"
+            label="dlama5671@gmail.com"
+            url="mailto:dlama5671@gmail.com"
           />
           <div class="mt-6 flex flex-wrap justify-start gap-1">
             <Button
@@ -96,10 +96,9 @@
         </div>
       </MagneticEffect>
 
-      <div class="flex justify-start">
-          available for onsite <br />
-          or remote
-       
+      <div class="flex justify-start font-bold">
+        Available for onsite <br />
+        or remote
       </div>
       <div class="flex">
         <ul

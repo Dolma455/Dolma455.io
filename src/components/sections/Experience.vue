@@ -67,7 +67,7 @@
     {
       role: 'Product Designer',
       company: 'Aadi Design Studio',
-      url: 'https://aadii-design.vercel.app/',
+      url: 'https://aadii.design/',
       period: '2025 - Present',
       location: 'Kathmandu, Nepal',
       description:

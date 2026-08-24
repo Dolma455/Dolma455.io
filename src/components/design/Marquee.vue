@@ -5,14 +5,14 @@
   >
     <div
       id="marquee-1"
-      class="flex h-fit translate-y-0 whitespace-nowrap will-change-transform"
+      class="flex h-fit whitespace-nowrap will-change-transform"
       role="marquee"
     >
       <h4
         v-for="_ in 2"
-        :id="`marquee-item-${_}`"
-        :key="`marquee-item-${_}`"
-        class="sm:heading-1 flex w-full items-center text-3xl font-bold text-nowrap whitespace-nowrap max-sm:mx-6"
+        :id="`marquee-item-1-${_}`"
+        :key="`marquee-item-1-${_}`"
+        class="sm:heading-1 flex shrink-0 items-center text-3xl font-bold text-nowrap whitespace-nowrap max-sm:mx-6"
       >
         Product Designer &amp; Developer
         <div class="w-fit scale-50 sm:scale-75">
@@ -32,17 +32,17 @@
     </div>
     <div
       id="marquee-2"
-      class="absolute bottom-0 z-50 flex h-fit translate-y-full whitespace-nowrap will-change-transform"
+      class="absolute top-0 left-0 z-10 flex h-fit whitespace-nowrap will-change-transform"
       role="marquee"
     >
       <h4
         v-for="_ in 2"
-        :id="`marquee-item-${_}`"
-        :key="`marquee-item-${_}`"
-        class="sm:heading-1 flex w-full items-center text-3xl font-bold text-nowrap whitespace-nowrap max-sm:mx-6"
+        :id="`marquee-item-2-${_}`"
+        :key="`marquee-item-2-${_}`"
+        class="sm:heading-1 flex shrink-0 items-center text-3xl font-bold text-nowrap whitespace-nowrap max-sm:mx-6"
       >
         Product Designer &amp; Developer
-        <div class="mx-2 inline-block scale-50 sm:scale-75">
+        <div class="w-fit scale-50 sm:scale-75">
           <svg
             class="ms-10 me-10"
             style="width: var(--heading-display)"
@@ -73,7 +73,9 @@
     duration: number,
   ): void => {
     const container = document.querySelector(selector) as HTMLElement;
+    if (!container) return;
     const items = Array.from(container.children) as HTMLElement[];
+    if (!items.length) return;
 
     const cloneCount = 2;
     for (let i = 0; i < cloneCount; i++) {
@@ -105,7 +107,7 @@
 
     const tl = gsap.timeline({
       scrollTrigger: {
-        markers: !true,
+        markers: false,
         trigger: '#marquee-section',
         start: 'top center',
         end: '110% center',
@@ -122,9 +124,9 @@
     tl.fromTo(
       '#marquee-2',
       {
-        yPercent: 0,
+        yPercent: 100,
       },
-      { yPercent: -100 },
+      { yPercent: 0 },
       '<',
     );
   });

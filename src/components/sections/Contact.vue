@@ -68,9 +68,9 @@
           <p class="w-full font-bold uppercase">For further inquiries</p>
           <Link
             class="text-flax-smoke-300 h-6 text-right font-medium tracking-wider lowercase"
-            label="dolmalama5671@gmail.com"
+            label="dlama5671@gmail.com"
             :icon="true"
-            url="mailto:dolmalama5671@gmail.com"
+            url="mailto:dlama5671@gmail.com"
           />
         </div>
       </div>

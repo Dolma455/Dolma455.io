@@ -15,7 +15,19 @@
             v-html="computedQuote"
           ></p>
           <div id="quote-author" class="heading-6 mb-6 font-semibold">
-            <p>{{ people[index].author }}</p>
+            <a
+              v-if="people[index].url"
+              :href="people[index].url"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-1.5"
+            >
+              <span>{{ people[index].author }}</span>
+              <svg class="h-4 w-4 shrink-0 text-flax-smoke-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
+            <p v-else>{{ people[index].author }}</p>
             <p class="text-flax-smoke-400">{{ people[index].position }}</p>
           </div>
           <div id="quote-tags" class="flex gap-3">
@@ -99,7 +111,19 @@
                 </p>
 
                 <div class="heading-6 mt-4 font-semibold">
-                  <p class="">{{ p.author }}</p>
+                  <a
+                    v-if="p.url"
+                    :href="p.url"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center gap-1.5"
+                  >
+                    <span>{{ p.author }}</span>
+                    <svg class="h-4 w-4 shrink-0 text-flax-smoke-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                  <p v-else class="">{{ p.author }}</p>
                   <p class="text-flax-smoke-400">
                     {{ p.position }}
                   </p>
@@ -126,7 +150,7 @@
 </template>
 
 <script setup lang="ts">
-  import { mohammad, aadiDesign } from '@/assets/images';
+  import { mohammad } from '@/assets/images';
   import { Button } from '../common';
   import { computed, onMounted, ref } from 'vue';
   import { useWindowSize } from '@vueuse/core';
@@ -261,19 +285,21 @@
   const people = [
     {
       quote:
-        'Collaborating with Dolma Lama on multiple projects has been a true pleasure. His exceptional skills, attention to detail, and commitment to quality consistently made him an invaluable asset to the team.',
+        'Collaborating with Dolma Lama on multiple projects has been a true pleasure. Her exceptional skills, attention to detail, and commitment to quality consistently made her an invaluable asset to the team.',
       author: 'Aaditya Raj Gupta',
+      url: 'https://aditya-gupta.com.np/',
       position: 'Full Stack Developer',
       tags: ['Web Development', 'Animation', 'UI/UX'],
       profile: mohammad,
     },
     {
       quote:
-        'Working with Dolma Lama on the Axon website has been an exceptional experience. His invaluable support and dedication were crucial in bringing this project to life. Thank you, Dolma Lama!',
+        'Working with Dolma Lama on the Aadi Design website has been an exceptional experience. Her invaluable support and dedication were crucial in bringing this project to life. Thank you, Dolma Lama!',
       author: 'Aadi Design Studio',
+      url: 'https://aadii.design/',
       position: '',
       tags: ['Web Development', 'SEO'],
-      profile: aadiDesign,
+      profile: '/Ad.png',
     },
   ];
 </script>
